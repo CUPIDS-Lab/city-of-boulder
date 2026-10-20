@@ -1,14 +1,19 @@
 # Images
 
-Where each figure in the deck came from. None is a screenshot: three are charts
-drawn from the city's open data, and one is a chart from the textbook.
+Where each image in the deck came from. None is a screenshot: three are charts
+drawn from the city's open data, one is a chart from the textbook, and four are
+memes for the outlook and risk frames.
 
 | File | Frame | Kind | Made | Source |
 |---|---|---|---|---|
 | `deck-themes-by-quarter.pdf` | 11 What council asks about | chart | by Brian Keegan with `code/hotline_themes.py`, from data through September 15, 2026 | City of Boulder open data, "Emails to the City Council Hotline" (CC0) |
-| `deck-records-needed.pdf` | 13 What to liberate first | chart | as above | as above |
+| `deck-records-needed.pdf` | 12 What the answers needed | chart | as above | as above |
 | `hotline-theme-by-records.pdf` | Appendix: which records each theme depends on | chart | as above | as above |
 | `sales-use-tax.png` | 9 Eight years of sales and use tax | chart (render) | 2026-10-12, matplotlib from pdfplumber readings, by the textbook's `tools/shots/renders/ch-09.py` | `cuinfoscience/Web-Data-Science-Book`, `images/ch-09/sales-use-tax.png`, copied unchanged on 2026-10-20 |
+| `drake-hotline.png` | 17 What happens next | meme | 2026-10-20, captioned by `code/make_memes.py` | imgflip template "Drake Hotline Bling" (181913649), https://i.imgflip.com/30b1gx.jpg |
+| `this-is-fine.jpg` | 18 Why I might be wrong | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-02/img/this-is-fine.jpg` (K. C. Green's "This is fine"), the instructor's pick |
+| `ben-parker.jpg` | 19 Some records shouldn't become data | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-02/img/ben-parker.jpg` (Uncle Ben, *Spider-Man*, 2002), the instructor's pick |
+| `archives-are-incomplete.jpg` | 20 Who bears the cost | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-07/img/archives-are-incomplete.jpg` (*Star Wars: Episode II*, "Perhaps the archives are incomplete"), the instructor's pick |
 
 ## Notes
 
