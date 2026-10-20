@@ -14,6 +14,7 @@ memes for the outlook and risk frames.
 | `this-is-fine.jpg` | 18 Why I might be wrong | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-02/img/this-is-fine.jpg` (K. C. Green's "This is fine"), the instructor's pick |
 | `ben-parker.jpg` | 19 Some records shouldn't become data | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-02/img/ben-parker.jpg` (Uncle Ben, *Spider-Man*, 2002), the instructor's pick |
 | `archives-are-incomplete.jpg` | 20 Who bears the cost | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-07/img/archives-are-incomplete.jpg` (*Star Wars: Episode II*, "Perhaps the archives are incomplete"), the instructor's pick |
+| `datalab.png` | 3 Document understanding | not yet recorded | added in Overleaf on 2026-10-20 (commit `818d68a`) | not yet recorded: the page it shows, its URL, and the capture date |
 
 ## Notes
 
