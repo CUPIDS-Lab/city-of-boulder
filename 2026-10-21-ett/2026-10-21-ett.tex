@@ -157,6 +157,18 @@
     Agent pipelines to identify page ranges, orchestrate OCR, extract tables, audit margins, record gaps, compare across volumes
 \end{frame}
 
+\begin{frame}{Twenty-two years of the city's budget}
+    \centering
+    \includegraphics[width=0.72\textwidth]{img/budget-index.png}
+
+    \raggedright\small
+    Since 2005, sales and use tax more than doubled and property tax tripled, while adopted staffing grew 28\%. The capital budget swings from year to year
+
+    \bottomcite{Indexed to 2005 = 100. Taxes: audited collections through 2025, 2026 adopted (dashed). Capital: adopted capital budget. Staff: adopted FTE. Nominal dollars. City of Boulder budget books and annual financial reports, via the Charting Boulder budget-history dataset}
+
+    \note{Taskforce prompt: what do we know today. This is the budget sprint's output. 2005 is the first year with all four series; the capital line is the adopted capital budget, a plan, not actual spending, and its dollars are nominal.}
+\end{frame}
+
 \begin{frame}[fragile]{Teaching with city's records portal}
     Week 09 of my Web Data Science course uses Finance Department's year-end revenue reports: \url{https://cuinfoscience.github.io/Web-Data-Science-Book/ch-09-pdfs.html}
 
@@ -211,7 +223,25 @@
 \begin{frame}{Analyzing hotline: answers from staff}
     \begin{columns}
         \begin{column}{0.65\textwidth}
-            
+            Classify each staff answer's subject and body based on keywords into eight kinds of records it draws on
+
+            \medskip
+
+            Of 142 answers, the most common: plans and studies (46\%), financial records (42\%), program data (39\%), legal and code text (38\%)
+
+            \medskip
+
+            55\% draw on three or more kinds of records; 14\% need none
+
+            \medskip
+
+            Council's questions mention financial records more often (71\%) than staff answers do (42\%)
+
+            \smallskip
+
+            A random 40 answers, coded by hand:
+
+            \smallskip
 
             \small
             \begin{tabular}{lr}
@@ -227,7 +257,10 @@
             \end{tabular}
         \end{column}
         \begin{column}{0.3\textwidth}
-        
+            {\scriptsize Kinds of records named: share of 349 questions and answers}
+
+            \smallskip
+
             \includegraphics[width=0.95\textwidth]{img/deck-records-needed.pdf}
         \end{column}
     \end{columns}
@@ -238,7 +271,7 @@
 
     \bigskip
 
-    \begin{columns}[T]\small 
+    \begin{columns}[T]\small\flushitems
         \begin{column}{0.31\textwidth}
             \textbf{Start now}
 

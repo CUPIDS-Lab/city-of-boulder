@@ -15,6 +15,7 @@ memes for the outlook and risk frames.
 | `ben-parker.jpg` | 19 Some records shouldn't become data | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-02/img/ben-parker.jpg` (Uncle Ben, *Spider-Man*, 2002), the instructor's pick |
 | `archives-are-incomplete.jpg` | 20 Who bears the cost | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-07/img/archives-are-incomplete.jpg` (*Star Wars: Episode II*, "Perhaps the archives are incomplete"), the instructor's pick |
 | `datalab.png` | 3 Document understanding | not yet recorded | added in Overleaf on 2026-10-20 (commit `818d68a`) | not yet recorded: the page it shows, its URL, and the capture date |
+| `budget-index.png` | Twenty-two years of the city's budget | chart | 2026-10-20, matplotlib, by `code/make_budget_index.py` | `budget-history-wide.csv` in the Charting Boulder budget-history folder (`brianckeegan/charting-boulder-private`, `2027-XX-budget-history/`, commit `a0e3825`), which transcribes the city's budget books and annual financial reports. Staffing, sales and use tax, property tax, and the capital budget, 2005–2026, each indexed to 2005 = 100 |
 
 ## Notes
 
@@ -31,3 +32,13 @@ memes for the outlook and risk frames.
   so this copy was made by hand.
 - The program output on frames 7 and 8 is set as text, not as an image. It is
   what chapter 9's code prints, copied from `ch-09-pdfs.qmd`.
+- The three hotline charts were drawn on the original deck's cream background
+  (#FAF8F5). On 2026-10-20, `code/whiten_backgrounds.py` replaced that fill
+  with white in each PDF; nothing else in the charts changed. The cream that
+  remains in `deck-themes-by-quarter.pdf` is its 0% cells, the bottom of the
+  color scale. Figures in this deck use a white or transparent background.
+- `budget-index.png` is 1920 x 1080 pixels (16:9), on white. Capital starts in
+  2005, so every series is indexed to 2005 rather than 2002. The capital line
+  is the adopted capital budget, a plan rather than actual spending. The
+  budget-history folder is not public yet, so this repository keeps the chart
+  and its script but not the CSV.
