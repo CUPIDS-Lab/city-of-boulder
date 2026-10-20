@@ -12,7 +12,7 @@ the audience is general: taskforce members, city staff, and residents.
 | `2026-10-21-ett-notes.pdf` | The same deck with a page of speaker notes after each frame |
 | `common/` | The INFO 4617 course's Gotham theme and preamble, copied (see below) |
 | `img/` | The figures and memes the deck shows; `img/IMAGES.md` says where each came from |
-| `code/` | The hotline scripts, their labeled output, and the script that captions the one new meme |
+| `code/` | `long-data-analysis.ipynb`, which makes the hotline and budget charts; the hotline labels it saves; the Assistant font; and the script that captions the one new meme |
 
 ## Building
 
@@ -81,12 +81,26 @@ the ones in each slide's footer; the title page is not counted.
 | Would impacts be disproportionately felt in our community? | 20 Who bears the cost |
 | What would the city need to do to mitigate impacts? | 16 Community values; 19; 20; 21 Key takeaways |
 
-## The hotline scripts
+## The analysis notebook
 
-`code/hotline_provocation.py` pulls every record from the city's open data
-layer "Emails to the City Council Hotline" and sorts list traffic by author and
-function. `code/hotline_themes.py` labels each message by policy theme and by
-the records an answer would need; `code/hotline-labels-all.csv` is its output
-for the 779 hotline-list messages. The hand-coded sample of 40 staff responses
-(`hotline-sample-coding.csv`, named in `hotline_provocation.py`) is not in this
-folder yet.
+`code/long-data-analysis.ipynb` makes every chart in the deck that comes from
+data, with a Markdown cell before each step. Run it from `code/`.
+
+1. It pulls every record from the city's open data layer "Emails to the City
+   Council Hotline" (CC0), keeps messages received through October 15, 2026,
+   and sorts the hotline-list traffic by author and function.
+2. It labels each message by policy theme and by the kinds of records an
+   answer would need, with short keyword dictionaries, and saves the labels
+   to `code/hotline-labels-all.csv`. Set `PULL_LIVE = False` to redraw from
+   that file without the network.
+3. It draws the three hotline charts and prints every hotline number the
+   slides quote.
+4. It draws the budget index chart from `budget-history-wide.csv` in the
+   Charting Boulder budget-history folder (`BUDGET_CSV`).
+
+Charts use the City of Boulder's brand colors and Assistant, the brand's
+alternative typeface (`code/fonts/`, SIL Open Font License), on white.
+
+The hand-coded sample of 40 staff responses was drawn from messages through
+September 15, 2026, and the notebook draws the same sample. The coding sheet
+itself (`hotline-sample-coding.csv`) is not in this folder yet.
