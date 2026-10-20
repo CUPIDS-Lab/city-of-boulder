@@ -10,7 +10,10 @@
 % No section dividers; no block environments; at most one alertblock a frame.
 % Each frame's speaker note names the taskforce prompt it answers.
 % ==========================================================================
-\documentclass[9pt,aspectratio=169]{beamer}
+% onlytextwidth: columns span the text width only, so a column's text starts at
+% the same left margin as text outside columns (beamer's default spreads
+% columns across the whole page, margins included, and centers them)
+\documentclass[9pt,aspectratio=169,onlytextwidth]{beamer}
 % Resolve the theme and preamble in common/ when compiling from this folder
 \makeatletter\def\input@path{{common/}}\makeatother
 \input{preamble}
@@ -633,12 +636,7 @@ every change column checks
 % (Gotham's \appendix adds a part page and a contents page, so it isn't used.)
 % =========================================================================
 
-\setbeamertemplate{footline}{
-  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=2ex,right]{footline}
-    {\footnotesize Appendix}
-    \hspace*{4ex}
-  \end{beamercolorbox}
-}
+\renewcommand{\footlabel}{Appendix}
 
 \begin{frame}[noframenumbering]{Appendix: record priorities in detail}
     \scriptsize\renewcommand{\arraystretch}{1.05}
