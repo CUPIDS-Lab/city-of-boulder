@@ -98,6 +98,16 @@
 }
 \makeatother
 
+% \flushitems -- put first-level bullets flush with the surrounding text, so a
+% list sits directly under its heading with no indent. Beamer draws each bullet
+% right-aligned, ending \labelsep before \leftmargini, so a \leftmargini of the
+% bullet's own width plus \labelsep starts the bullet at the text's left edge.
+% Use it inside a group (a column, a frame) before the itemize it should affect.
+\newcommand{\flushitems}{%
+  \settowidth{\leftmargini}{\usebeamerfont*{itemize item}\usebeamertemplate{itemize item}}%
+  \addtolength{\leftmargini}{\labelsep}%
+}
+
 % Consistent code styling for the Wednesday "applied notebook" frames.
 \lstdefinestyle{wds}{
     basicstyle=\ttfamily\scriptsize,

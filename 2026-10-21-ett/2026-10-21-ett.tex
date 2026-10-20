@@ -157,15 +157,27 @@
     Agent pipelines to identify page ranges, orchestrate OCR, extract tables, audit margins, record gaps, compare across volumes
 \end{frame}
 
+\begin{frame}{Twenty-two years of the city's budget}
+    \centering
+    \includegraphics[width=0.72\textwidth]{img/budget-index.png}
+
+    \raggedright\small
+    Since 2005, sales and use tax more than doubled and property tax tripled, while adopted staffing grew 28\%. The capital budget swings from year to year
+
+    \bottomcite{Indexed to 2005 = 100. Taxes: audited collections through 2025, 2026 adopted (dashed). Capital: adopted capital budget. Staff: adopted FTE. Nominal dollars. City of Boulder budget books and annual financial reports, via the Charting Boulder budget-history dataset}
+
+    \note{Taskforce prompt: what do we know today. This is the budget sprint's output. 2005 is the first year with all four series; the capital line is the adopted capital budget, a plan, not actual spending, and its dollars are nominal.}
+\end{frame}
+
 \begin{frame}[fragile]{Teaching with city's records portal}
     Week 09 of my Web Data Science course uses Finance Department's year-end revenue reports: \url{https://cuinfoscience.github.io/Web-Data-Science-Book/ch-09-pdfs.html}
 
     \bigskip
 
-    Access city's Laserfische archives, download report PDFs, find and extract tables, check arithmetic against reported margins and prior years
+    Access city's Laserfiche archives, download report PDFs, find and extract tables, check arithmetic against reported margins and prior years
 
     \begin{center}
-        \includegraphics[width=.475\textwidth]{/img/revenue.png}
+        \includegraphics[width=.475\textwidth]{img/revenue.png}
         \hfill
         \includegraphics[width=.475\textwidth]{img/sales-use-tax.png}
     \end{center}
@@ -180,7 +192,7 @@
 
     \medskip
 
-    779 messages since March 2023: 207 questions from council and 142 answers from staff
+    797 messages since March 2023: 209 questions from council and 144 answers from staff
 
     \medskip
 
@@ -192,7 +204,7 @@
         How many of council's questions could be answered with staff-supervised automation using the city's own records?
     \end{alertblock}
 
-    \bottomcite{City of Boulder open data, ``\href{https://bouldercolorado.gov/boulder-council-hotline-archives}{Emails to the City Council Hotline},'' March 2, 2023 to September 15, 2026}
+    \bottomcite{City of Boulder open data, ``\href{https://bouldercolorado.gov/boulder-council-hotline-archives}{Emails to the City Council Hotline},'' March 2, 2023 to October 15, 2026}
 \end{frame}
 
 \begin{frame}{Analyzing hotline: questions from council}
@@ -205,13 +217,31 @@
         \includegraphics[width=.85\textwidth]{img/deck-themes-by-quarter.pdf}
     \end{center}
 
-    \bottomcite{Code, keyword lists, and labels: \texttt{code/hotline\_provocation.py}, \texttt{code/hotline\_themes.py}, \texttt{code/hotline-labels-all.csv}}
+    \bottomcite{Code, keyword lists, and labels: \texttt{code/long-data-analysis.ipynb}, \texttt{code/hotline-labels-all.csv}. Messages through October 15, 2026; the chart shows complete quarters}
 \end{frame}
 
 \begin{frame}{Analyzing hotline: answers from staff}
     \begin{columns}
         \begin{column}{0.65\textwidth}
-            
+            Classify each staff answer's subject and body based on keywords into eight kinds of records it draws on
+
+            \medskip
+
+            Of 144 answers, the most common: plans and studies (47\%), financial records (43\%), program data (39\%), legal and code text (38\%)
+
+            \medskip
+
+            56\% draw on three or more kinds of records; 14\% need none
+
+            \medskip
+
+            Council's questions mention financial records more often (70\%) than staff answers do (43\%)
+
+            \smallskip
+
+            A random 40 answers, coded by hand:
+
+            \smallskip
 
             \small
             \begin{tabular}{lr}
@@ -227,7 +257,10 @@
             \end{tabular}
         \end{column}
         \begin{column}{0.3\textwidth}
-        
+            {\scriptsize Kinds of records named: share of 353 questions and answers}
+
+            \smallskip
+
             \includegraphics[width=0.95\textwidth]{img/deck-records-needed.pdf}
         \end{column}
     \end{columns}
@@ -238,7 +271,7 @@
 
     \bigskip
 
-    \begin{columns}[T]\small 
+    \begin{columns}[T]\small\flushitems
         \begin{column}{0.31\textwidth}
             \textbf{Start now}
 
@@ -493,7 +526,7 @@
         Board and commission appointments & Who served on what, when & Announced on the hotline; rosters unknown & Next \\
         Program year-end reports & Operational data & Some sent as hotline attachments & Next \\
         Permits and land records & Where things are & Department systems; custody split & Screen \\
-        Hotline and public comment & What council asks; deliberation & 885 records, March 2023 to September 2026; email addresses and phone numbers coded & Screen \\
+        Hotline and public comment & What council asks; deliberation & 904 records, March 2023 to October 15, 2026; email addresses and phone numbers coded & Screen \\
         \bottomrule
     \end{tabular}
 
