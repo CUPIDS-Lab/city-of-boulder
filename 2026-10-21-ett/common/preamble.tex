@@ -61,10 +61,13 @@
 \setbeamercolor{block body alerted}{fg=black, bg=cugold!10}
 
 % ------------------------------------------------------------------ footline
+% This talk's copy pads the page number further from the slide's right and
+% bottom edges than the course decks do (dp=2ex, 4ex), so \bottomcite below
+% sits 4.5ex up, flush on the taller box.
 \setbeamertemplate{footline}{
-  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1ex,right]{footline}
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=2ex,right]{footline}
     {\footnotesize \insertframenumber{} of \inserttotalframenumber}
-    \hspace*{2ex}
+    \hspace*{4ex}
   \end{beamercolorbox}
 }
 
@@ -83,8 +86,8 @@
 \newcommand{\bottomcite}[1]{%
   \begin{tikzpicture}[remember picture, overlay]
     \node[anchor=south west, align=flush left,
-          text width=\dimexpr\paperwidth-4ex\relax, inner sep=0pt]
-      at ([xshift=2ex, yshift=3.5ex]current page.south west)
+          text width=\dimexpr\paperwidth-8ex\relax, inner sep=0pt]
+      at ([xshift=4ex, yshift=4.5ex]current page.south west)
       {\tiny\rule{\linewidth}{0.3pt}\\[-1.8ex]#1};
   \end{tikzpicture}%
 }
