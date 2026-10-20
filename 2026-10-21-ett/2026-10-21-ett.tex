@@ -4,9 +4,10 @@
 % "Emerging technology for improved access to and use of historic
 % documentation"
 % Build:  latexmk -pdf 2026-10-21-ett.tex   (from this folder; run twice)
-% Format: the INFO 4617 course decks (Gotham theme; preamble in common/)
 % Notes:  latexmk -pdf -jobname=2026-10-21-ett-notes \
 %           -usepretex='\def\shownotes{}' 2026-10-21-ett.tex
+% Format: the INFO 4617 course decks (Gotham theme; preamble in common/).
+% No section dividers; no block environments; at most one alertblock a frame.
 % Each frame's speaker note names the taskforce prompt it answers.
 % ==========================================================================
 \documentclass[9pt,aspectratio=169]{beamer}
@@ -15,8 +16,7 @@
 \input{preamble}
 \usepackage{array}  % for the appendix table's p{} columns
 
-% Speaker notes: the notes build defines \shownotes (see README.md). For
-% notes beside each slide instead, use show notes on second screen=right.
+% Speaker notes: the notes build defines \shownotes (see README.md)
 \ifdefined\shownotes\setbeameroption{show notes}\fi
 
 \title[Long Data]{{\Huge Long Data}}
@@ -28,200 +28,205 @@
 
 \maketitle
 
-% =========================================================================
-\section{Long data}
-% =========================================================================
+% -------------------------------------------------------------------------
+% Opening: the hotline question
+% -------------------------------------------------------------------------
+
+\begin{frame}{The council hotline}
+    Council members send questions to staff through a shared email list, the council hotline. Staff answer on the same list, and the city publishes every message as open data
+
+    \medskip
+
+    Since March 2023 the list has carried 779 messages, among them 207 posts of council questions and 142 staff answers
+
+    \medskip
+
+    Many of those answers point to something the city had already written down: a budget table, a staff memo, an ordinance
+
+    \bigskip
+
+    \begin{alertblock}{The question for the next fifteen minutes}
+        How many of council's questions could the city's own records answer, and could a machine find those records?
+    \end{alertblock}
+
+    \bottomcite{City of Boulder open data, ``Emails to the City Council Hotline,'' March 2, 2023 to September 15, 2026}
+
+    \note{Taskforce prompt: overview of the topic. Open with the hotline: some people in the room have sent or answered these messages. I come back to it three times: the method, the findings, and the risks.}
+\end{frame}
 
 \begin{frame}{Long data}
-    Big data is wide and shallow: many records, short history
-
-    \medskip
-
-    Municipal data is narrow and deep: one jurisdiction, recorded continuously across generations
-
-    \medskip
-
-    Boulder incorporated on November 4, 1871, and adopted its home rule charter on October 30, 1917. The charter has been amended ever since
-
-    \bigskip
-
-    \begin{alertblock}{Consequences}
-        The city's records run 154 years deep. Nothing else the city owns covers that span
-    \end{alertblock}
-
-    \bottomcite{The term is Samuel Arbesman's: ``Stop Hyping Big Data and Start Paying Attention to `Long Data','' \textit{Wired}, January 29, 2013}
-
-    \note{Taskforce prompt: overview of the topic. Land the reframe before anything technical. Everyone in the room has heard a big-data pitch. Nobody has heard this one.}
-\end{frame}
-
-\begin{frame}{Retrieval fits long data}
-    Most technology pitched to cities is built for big data: scale, throughput, statistical power
-
-    \medskip
-
-    Retrieval, knowledge graphs, and agent harnesses fit long data better: a small corpus, strict provenance, and the same people, places, and laws named differently across decades
-
-    \medskip
-
-    Document intelligence changed the price of reading. An accurate machine reading of a scanned page now costs under a cent
-
-    \bigskip
-
-    \begin{block}{The requirement}
-        Provenance: find the 1974 staff memorandum, and say which page it is on
-    \end{block}
-
-    \begin{alertblock}{Consequences}
-        What stays expensive is knowing where to look and checking what the machine read
-    \end{alertblock}
-
-    \note{Taskforce prompts: overview; what do we know today. The price-of-reading line is the hinge for the middle of the talk. The sprints and the revenue demo are the evidence for it.}
-\end{frame}
-
-\begin{frame}{Erosion, enclosure, exemption}
-    The record can fail without anyone hiding anything
-
-    \medskip
-
-    \begin{description}\small
-        \item[Erosion.] The record degrades through ordinary operations. The hotline archive splits at a 2023 server migration. Attachments were severed from the messages that cite them. OpenColorado, the shared repository for Colorado jurisdictions, has been retired
-        \item[Enclosure.] Documents stay public while the routes to them are fenced: opaque numeric identifiers, automated access disallowed, export ceilings, custody split across four custodians
-        \item[Exemption.] What never enters the record. Deliberation that moves to a phone call. Material never digitized, which is functionally nonexistent
-    \end{description}
-
-    \medskip
-
-    \begin{block}{Each has a counter}
-        Ownership answers erosion, openness answers enclosure, and oversight answers exemption
-    \end{block}
-
-    \note{Taskforce prompt: overview. These three are the analytic for the whole talk and for whatever the taskforce looks at next. Do not rush them.}
-\end{frame}
-
-\begin{frame}{The city charter}
-    The Charter of the City of Boulder, adopted October 30, 1917, sits in the city's records portal
-
-    \medskip
-
-    The portal disallows automated access and addresses documents by opaque integers
-
-    \medskip
-
-    The same charter is a free download from the university law library: item 31 in its collection of historical Colorado municipal codes
-
-    \bigskip
-
-    \begin{alertblock}{Consequences}
-        The city scanned the charter; the law library made it downloadable. The law library is a partner the city already has, and its collection shows what the work looks like
-    \end{alertblock}
-
-    \note{Taskforce prompts: what do we know today; examples. Erosion and enclosure in one object. Frame it as an offer, not a complaint.}
-\end{frame}
-
-% =========================================================================
-\section{What we know today}
-% =========================================================================
-
-\begin{frame}{What the city holds}
     \begin{columns}[T]
-        \begin{column}{0.47\textwidth}
-            \begin{itemize}\small
-                \item \textbf{Legislative:} ordinances, minutes, charter and code versions
-                \item \textbf{Deliberative:} recordings, hotline, staff memoranda
-                \item \textbf{Land:} permits, plats, variances, zoning, annexations
-                \item \textbf{Planning and fiscal:} comprehensive plans, capital programs, budget books
-                \item \textbf{Spatial:} GIS vintages, aerial series, floodplain maps
-                \item \textbf{Electoral:} ballot measures, results, campaign finance
-            \end{itemize}
+        \begin{column}{0.52\textwidth}
+            Big data means many records over a short span: clicks, sensor readings, card swipes
+
+            \medskip
+
+            A city's records run the other way. One place, written down continuously for more than a century. Samuel Arbesman called this \textbf{long data}
+
+            \medskip
+
+            Long data answers questions no snapshot can: what the code said in 1974, how a budget line moved over 26 years, whether an earlier council asked the same question
+
+            \medskip
+
+            Most of it sits in a form a person can read and a computer can't
         \end{column}
-        \begin{column}{0.48\textwidth}
-            \small
+        \begin{column}{0.44\textwidth}
+            \footnotesize
             \begin{tabular}{lll}
                 \toprule
-                \textbf{Tier} & \textbf{Machine-readable} & \textbf{Extent} \\
+                \textbf{Holding} & \textbf{Readable?} & \textbf{Amount} \\
                 \midrule
-                Digital, text layer & Yes & Small \\
-                Scanned, no text    & No  & Large \\
-                Paper, film, AV     & No  & Unknown \\
+                Digital files with text & Yes & Small \\
+                Scanned pages           & No  & Large \\
+                Paper, film, audio      & No  & Unknown \\
                 \bottomrule
             \end{tabular}
 
             \medskip
 
-            The largest untapped tier is audio: decades of council and board deliberation
+            Nobody has counted. The largest unread holding is probably audio: decades of council and board meetings, where the reasons behind decisions were spoken aloud
+        \end{column}
+    \end{columns}
+
+    \bottomcite{Samuel Arbesman, ``Stop Hyping Big Data and Start Paying Attention to `Long Data','' \textit{Wired}, January 29, 2013}
+
+    \note{Taskforce prompts: overview; what do we know today. The table's last column is a guess, and I say so. If asked where to start: an inventory, before any purchase.}
+\end{frame}
+
+% -------------------------------------------------------------------------
+% Definitions: document understanding and data liberation
+% -------------------------------------------------------------------------
+
+\begin{frame}{Document understanding}
+    \begin{columns}[T]
+        \begin{column}{0.52\textwidth}
+            \textbf{Document understanding} is the research field, and the software, that turns a page into data a computer can use. Its main tasks:
 
             \medskip
 
-            Adopted text records the decision. Deliberation records the reason
+            \begin{itemize}\small
+                \item \textbf{Layout analysis} finds the headings, paragraphs, tables, and figures on a page, and the order to read them in
+                \item \textbf{Optical character recognition (OCR)} reads printed or handwritten text from a picture of a page
+                \item \textbf{Table recognition} rebuilds a table's rows, columns, and cells
+                \item \textbf{Field extraction} pulls named items, such as a date or a total, out of a form
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.44\textwidth}
+            Tools for this work fall into three groups
+
+            \medskip
+
+            \begin{itemize}\small
+                \item Converters that copy text already stored in a file: fast and exact, and blind to scans
+                \item Chains of small models, one for each task, that run on an ordinary computer
+                \item Vision-language models, which look at an image of the page and write the whole page out. The most capable, and the most expensive to run
+            \end{itemize}
+
+            \medskip
+
+            None of them chooses which document to read, checks its own output, or decides what the public may see
         \end{column}
     \end{columns}
 
-    \bigskip
+    \bottomcite{Keegan, \textit{Web Data Science}, Chapter 9, ``Document Understanding'' (github.com/cuinfoscience/Web-Data-Science-Book)}
 
-    \begin{alertblock}{Consequences}
-        Nobody can yet say how the holdings split across these three tiers, and every cost estimate depends on that split
-    \end{alertblock}
-
-    \note{Taskforce prompt: what do we know today. Read the left column at pace; its value is cumulative weight. If asked where to start: an inventory, not a procurement.}
+    \note{Taskforce prompt: overview of the technology. Keep this general; the chapter names specific tools, and the taskforce asked us not to. The last line scopes the technology: the three things it leaves to people are the three the rest of the talk is about.}
 \end{frame}
 
+\begin{frame}{Data liberation}
+    \textbf{Data liberation} moves information that is already public out of the formats that bury it (scans, PDFs, portals without an export button) and into data anyone can reuse, with a record of where every value came from
+
+    \medskip
+
+    The records are public before and after. Liberation lowers the cost of using them
+
+    \bigskip
+
+    \begin{itemize}\small\setlength\itemsep{3pt}
+        \item \textbf{2009.} RECAP, a browser extension built at Princeton, copies federal court documents that users have already paid for into a free public archive
+        \item \textbf{2014.} The Sunlight Foundation runs a PDF Liberation Hackathon to build shared tools for pulling tables out of government PDFs
+        \item \textbf{2017 on.} The Public Utility Data Liberation project turns federal energy filings into one documented, open database
+        \item \textbf{2020.} The U.S. Supreme Court rules in \textit{Georgia v. Public.Resource.Org} that the state's annotated code cannot be copyrighted
+        \item \textbf{Boulder.} Boulder Public Data rebuilds the county's precinct election results, 2004--2024, from published statements of vote
+    \end{itemize}
+
+    \bottomcite{Tom Lee, ``PDF Liberation: Why It Matters and How You Can Help,'' Sunlight Foundation, January 24, 2014; \textit{Georgia v. Public.Resource.Org, Inc.}, 590 U.S. 255 (2020)}
+
+    \note{Taskforce prompt: relevant examples, kept general. Every example is a nonprofit, a university project, or a court; none is a product. The Boulder entry is a local volunteer effort, which is the capacity argument in miniature.}
+\end{frame}
+
+\begin{frame}{What liberation could do for the city}
+    \begin{itemize}\setlength\itemsep{4pt}
+        \item \textbf{Hotline answers.} Staff drafting a reply to council find the memo that already answered it, with the page cited
+        \item \textbf{Budget history.} A 26-year series in which every figure points to its page, rebuilt once instead of by every analyst who needs it
+        \item \textbf{The law on a date.} Which version of an ordinance was in force when a permit was issued
+        \item \textbf{Records requests.} A document made searchable once is ready for every later request that asks for it
+        \item \textbf{Accessibility.} Every scanned page gains text that a screen reader can speak
+        \item \textbf{Research and reporting.} Residents, reporters, and the university work from the same corpus as staff
+    \end{itemize}
+
+    \note{Taskforce prompts: implications for the city; key opportunities. The first item is the hotline again: this is the use the evidence later in the talk speaks to most directly.}
+\end{frame}
+
+% -------------------------------------------------------------------------
+% What we know today: sprints and the chapter 9 demo
+% -------------------------------------------------------------------------
+
 \begin{frame}{Two liberation sprints}
+    I tried this twice, on my own time, for a newspaper column
+
+    \bigskip
+
     \begin{columns}[T]
-        \begin{column}{0.48\textwidth}
-            \begin{block}{City budget books, 2002--2027}
-                \small 34 PDFs and 10,843 pages from the city's records portal. Six volumes, 1,651 pages, have no text layer at all. The budget portal offers no public data endpoint
+        \begin{column}{0.47\textwidth}
+            \textbf{City budget books, 2002--2027}
 
-                \medskip
+            \smallskip
 
-                \textbf{Result:} 450 figures across 26 years, each traced to its source document
-            \end{block}
+            34 PDFs and 10,843 pages from the city's records portal. Six volumes, 1,651 pages, contain no text at all, only pictures of pages
+
+            \smallskip
+
+            \textbf{Result:} 450 figures across 26 years, each traced to its source document
         \end{column}
-        \begin{column}{0.48\textwidth}
-            \begin{block}{State school yearbooks, 1986--1999}
-                \small The scans' built-in text layer recovered 3.9\% of one table's cells. Accurate OCR read the rest at 0.75 cents a page, about \$5 for fourteen volumes
+        \begin{column}{0.47\textwidth}
+            \textbf{State school yearbooks, 1986--1999}
 
-                \medskip
+            \smallskip
 
-                \textbf{Result:} 1,267 of 1,269 figures read twice agree exactly
-            \end{block}
+            The text stored in the scans recovered 3.9\% of one table's cells. OCR read the rest at 0.75 cents a page, about \$5 for fourteen volumes
+
+            \smallskip
+
+            \textbf{Result:} of 1,269 figures read twice, 1,267 agree exactly
         \end{column}
     \end{columns}
 
     \bigskip
 
-    \begin{alertblock}{Consequences}
-        Reading the pages cost a few dollars. The time went to finding the right pages, checking every figure, and naming every gap
-    \end{alertblock}
+    Reading the pages cost a few dollars. Finding the right pages, checking every figure, and recording every gap took nearly all of the effort
 
     \bottomcite{Source: Charting Boulder repository, budget-history and alternatives folders}
 
-    \note{Taskforce prompt: what do we know today. First person here: I did this on my own time for a newspaper column. If one person can do it for a column, the city can do it for the public record.}
+    \note{Taskforce prompt: what do we know today. If one person can do this for a column, the city can do it for the public record.}
 \end{frame}
 
-% -------------------------------------------------------------------------
-% Demo: Web Data Science, Chapter 9, "Case Study: Boulder Revenue Reports"
-% -------------------------------------------------------------------------
-
-\begin{frame}[fragile]{The city's records portal}
+\begin{frame}[fragile]{Getting a report from the records portal}
     \begin{columns}[T]
         \begin{column}{0.5\textwidth}
-            The Finance Department files a year-end revenue report in the city's records portal
+            Chapter 9 of my textbook walks students through one folder of the city's records portal: the Finance Department's year-end revenue reports
 
             \medskip
 
-            The folder's page arrives saying ``Loading...''; a script fills in the list
+            The folder's page arrives empty, saying ``Loading...''. A script then asks the portal for the folder's contents. The chapter's code sends that same request
 
             \medskip
 
-            Behind the list is one request. It sends the folder's number and gets back a structured listing
-
-            \medskip
-
-            Each download is checked before it is read. A PDF starts with the bytes \texttt{\%PDF-}; for a scanned record, the same address answers with an empty file
+            Every download gets checked. A real PDF starts with the characters \texttt{\%PDF-}; for a scanned record, the portal sends back an empty file
         \end{column}
-        \begin{column}{0.47\textwidth}
-            \begin{block}{Program output}
-\begin{lstlisting}[language={},basicstyle=\ttfamily\scriptsize]
+        \begin{column}{0.46\textwidth}
+\begin{lstlisting}[language={},basicstyle=\ttfamily\scriptsize,frame=single]
 \Central Records\Finance\Reports\Revenue Reports
 7 entries
 194346 2021 (folder)
@@ -234,36 +239,34 @@
 
 application/pdf 723920 b'%PDF-'
 \end{lstlisting}
-            \end{block}
-            {\scriptsize Chapter 9's code, October 2026: the folder's listing, then the December 2024 report's type, size, and first bytes}
+            {\scriptsize What the chapter's code printed in October 2026: the folder's contents, then the December 2024 report's file type, size, and first characters}
         \end{column}
     \end{columns}
 
-    \medskip
+    \bigskip
 
-    \begin{alertblock}{Consequences}
-        Each report takes its own request. On October 6, 2026, the server stopped answering after 13 to 17 requests in a row and answered again after a five-minute pause
+    \begin{alertblock}{One report at a time}
+        The portal answers one request at a time. On October 6, 2026, it stopped answering after 13 to 17 requests in a row and came back after a five-minute pause
     \end{alertblock}
 
-    \note{Taskforce prompt: what do we know today. This is a textbook chapter my students work through: retrieving and reading the city's own reports. Say "records portal"; the taskforce asked us not to comment on specific providers. Code is in the appendix.}
+    \note{Taskforce prompt: what do we know today. Say ``records portal''; no product names. The code is in the appendix.}
 \end{frame}
 
-\begin{frame}[fragile]{Reading one report}
+\begin{frame}[fragile]{Reading the totals}
     \begin{columns}[T]
-        \begin{column}{0.54\textwidth}
-            Each report opens with a summary table of sales and use tax, the city's largest source of revenue, for this year and the year before
+        \begin{column}{0.5\textwidth}
+            Each report opens with a table of sales and use tax, the city's largest source of revenue, for this year and last
 
             \medskip
 
-            The table is on page 2 of every report except 2020's, which opens with a restatement letter. So the code finds the page by its first sentence, not its number
+            The code finds that table by its opening sentence rather than its page number, because the 2020 report put a restatement letter in front of it
 
             \medskip
 
-            It reads the totals row by its position on the page, then checks it: this year minus last year must equal the change the report prints
+            It reads the totals row, then checks the row against the report's own arithmetic: this year minus last year must equal the change the report prints
         \end{column}
-        \begin{column}{0.42\textwidth}
-            \begin{block}{Program output, 2018 report}
-\begin{lstlisting}[language={},basicstyle=\ttfamily\scriptsize]
+        \begin{column}{0.46\textwidth}
+\begin{lstlisting}[language={},basicstyle=\ttfamily\scriptsize,frame=single]
 ('2017', '2018')
 ['$134,538,892', '$140,648,710',
  '$6,109,818', '4.54%']
@@ -271,313 +274,368 @@ application/pdf 723920 b'%PDF-'
 14 figures from 7 reports;
 every change column checks
 \end{lstlisting}
-            \end{block}
-            {\scriptsize The heading's two years, then the totals row: last year, this year, the change in dollars, the change in percent}
+            {\scriptsize The 2018 report's two years, then its totals row: last year, this year, the change in dollars, and the change in percent}
         \end{column}
     \end{columns}
 
     \bigskip
 
-    \begin{alertblock}{Consequences}
-        Six years are printed in two reports each. Five agree to the dollar. The two printings of 2018 differ by \$38,959, and neither report says why
+    \begin{alertblock}{Two printings of 2018}
+        Six years appear in two reports each. Five match to the dollar. The two printings of 2018 differ by \$38,959, and neither report explains why
     \end{alertblock}
 
-    \note{Taskforce prompt: what do we know today. A reading that can't be checked against the document's own arithmetic is a guess. The series uses each year's latest printing, and says so.}
+    \note{Taskforce prompt: what do we know today. A machine reading that can't be checked against the document's own arithmetic is a guess. The chart on the next slide uses each year's latest printing.}
 \end{frame}
 
 \begin{frame}{Eight years of sales and use tax}
     \centering
-    \includegraphics[width=0.62\textwidth]{img/sales-use-tax.png}
+    \includegraphics[width=0.66\textwidth]{img/sales-use-tax.png}
 
-    \raggedright\scriptsize
-    Total sales and use tax, 2017--2024, read from the summary tables of seven year-end revenue reports. Each year uses its latest printing. Dollars of each year, not adjusted for inflation
+    \raggedright
 
     \medskip
 
-    \begin{alertblock}{Consequences}
-        \small Down 4.76\% in 2020, up more than 10\% in both 2021 and 2022, down 0.92\% in 2024. Every figure traces to a page of a named report
+    Down 4.76\% in 2020, up more than 10\% in 2021 and again in 2022, down 0.92\% in 2024. Every bar traces to a page in a named report
+
+    \smallskip
+
+    {\scriptsize Total sales and use tax, 2017--2024, read from seven year-end revenue reports; each year's latest printing; dollars of each year, not adjusted for inflation}
+
+    \bottomcite{Keegan, \textit{Web Data Science}, Chapter 9, ``Case Study: Boulder Revenue Reports''; the city's revenue reports, retrieved October 6, 2026}
+
+    \note{Taskforce prompt: what do we know today. Two requests per report, a page found by its wording, one row read by position, one arithmetic check. The method already works on the city's records.}
+\end{frame}
+
+% -------------------------------------------------------------------------
+% The hotline case study
+% -------------------------------------------------------------------------
+
+\begin{frame}{The hotline data}
+    The city publishes the hotline under a public-domain license: 885 messages from March 2, 2023 to September 15, 2026
+
+    \medskip
+
+    I set aside 106 messages sent from outside the list. Of the 779 that remain, 207 are council questions and 142 are staff answers
+
+    \medskip
+
+    I kept each message's subject and the part its author wrote, dropping quoted replies, signatures, and boilerplate
+
+    \medskip
+
+    Two sets of keyword lists then labeled every message: nine policy themes, and eight kinds of record an answer would need. One message can carry several labels
+
+    \medskip
+
+    I read 25 messages by hand. The keywords named the main theme correctly in about 22
+
+    \medskip
+
+    \begin{alertblock}{Limits}
+        Keywords see words, not intent. And the attachments, where many answers live, are missing from the published data
     \end{alertblock}
 
-    \bottomcite{Keegan, \textit{Web Data Science}, Chapter 9, ``Case Study: Boulder Revenue Reports'' (github.com/cuinfoscience/Web-Data-Science-Book); the city's revenue reports, 2018--2024, retrieved October 6, 2026}
+    \bottomcite{Code, keyword lists, and labels: \texttt{code/hotline\_provocation.py}, \texttt{code/hotline\_themes.py}, \texttt{code/hotline-labels-all.csv}}
 
-    \note{Taskforce prompt: what do we know today. Two requests per report, a page found by its wording, one row read by position, one arithmetic check. That is the whole method, and it already works on the city's records.}
+    \note{Taskforce prompt: what do we know today. The keyword lists are short on purpose, so anyone can read them and dispute them. Offer the code.}
 \end{frame}
-
-\begin{frame}{Archive, derived, and retrieval layers}
-    \begin{block}{Archive layer}
-        \small Originals exactly as received and never edited. Each carries a checksum, its source URL, and its retrieval date
-    \end{block}
-    \begin{block}{Derived layer}
-        \small Text and tables extracted from the originals. Every value names its source document, machine readings are marked as such, each document's totals are checked against its own parts (the revenue reports' change column is one such check), and a failed check stops the build. Gaps are named, never filled
-    \end{block}
-    \begin{block}{Retrieval layer}
-        \small Search, pipelines, and agents. Every answer cites back down to a document and page
-    \end{block}
-
-    \medskip
-
-    \small Each rule answers a failure. OCR invented values from percentages and read a bar chart as numbers; the budget book's own arithmetic caught both. A pipeline once wrote nine copies of fourteen years of records, and every total still looked right
-
-    \note{Taskforce prompt: what would the city need to do. This is the argument that the data lake needs a spine. Retrieval without the two layers beneath it is a fluent guess.}
-\end{frame}
-
-% =========================================================================
-\section{Implications for the city}
-% =========================================================================
 
 \begin{frame}{What council asks about}
     \centering
-    \includegraphics[width=\textwidth,height=0.62\textheight,keepaspectratio]{img/deck-themes-by-quarter.pdf}
+    \includegraphics[width=\textwidth,height=0.58\textheight,keepaspectratio]{img/deck-themes-by-quarter.pdf}
 
     \raggedright\small
-    Budget runs through every quarter. Wildfire and climate roughly tripled their share after 2023. Homelessness spikes, then nearly vanishes in 2026
-
-    \bottomcite{City of Boulder open data, ``Emails to the City Council Hotline'' (CC0), March 2, 2023 to September 15, 2026: 779 hotline-list messages, classified by keyword}
-
-    \note{Taskforce prompt: implications for the city. All 779 hotline-list messages, classified by keyword. The primary theme matched in about 22 of 25 messages I checked by hand; secondary labels are generous on long messages.}
-\end{frame}
-
-\begin{frame}{The council hotline}
-    Since March 2023: 779 hotline messages, 207 council question posts holding about 1,090 question marks, and 142 staff responses. I coded a random 40 of those responses
 
     \medskip
 
-    \begin{center}
-        \small
-        \begin{tabular}{lr}
-            \toprule
-            \textbf{What the answer required} & \textbf{Responses} \\
-            \midrule
-            Procedural: a resend, a logistics note, a transmittal & 10 \\
-            Lookup: the answer already sits in a packet, memo, ordinance, or dataset & 10 \\
-            Mixed: a factual scaffold from the record, plus judgment & 14 \\
-            Judgment: new analysis or a policy position & 6 \\
-            \bottomrule
-        \end{tabular}
-    \end{center}
+    Budget questions run through every quarter, from a third of messages in 2023 to 43\% in 2025 and 2026. Wildfire and climate grew from 11\% of messages in 2023 to 32\% in 2026. Homelessness held near 13\% for three years, then fell to 1\% in 2026
 
-    \medskip
+    \bottomcite{All 779 hotline-list messages, labeled by keyword; shares of each year's messages}
 
-    \begin{alertblock}{Consequences}
-        A third of the substantive answers were lookups. One in five needed judgment that no record holds
-    \end{alertblock}
-
-    \bottomcite{One coder, n = 40. One set of wildfire answers credits more than twenty staff. Nearly every message is flagged as carrying an attachment; none of the attachments are in the published dataset}
-
-    \note{Taskforce prompt: implications for the city. The right verb is drafted with citations. Answers to elected officials go out under a staff member's name, and should. Script and coding sheet are public; offer them.}
+    \note{Taskforce prompt: implications for the city. A message can touch several themes, so shares add to more than 100\%.}
 \end{frame}
 
-\begin{frame}{What to liberate first}
+\begin{frame}{What the answers needed}
     \begin{columns}[T]
-        \begin{column}{0.44\textwidth}
-            {\scriptsize Records needed to answer: share of 349 council questions and staff responses}
-
-            \smallskip
-
-            \includegraphics[width=0.92\textwidth]{img/deck-records-needed.pdf}
+        \begin{column}{0.5\textwidth}
+            I sorted a random 40 of the 142 staff answers by what each one took. One coder, me, so treat the counts as a first look
 
             \medskip
 
-            \small Financial records are needed for three in five answers, and in every theme
+            \small
+            \begin{tabular}{lr}
+                \toprule
+                \textbf{The answer took} & \textbf{Answers} \\
+                \midrule
+                A resend, a logistics note, or a transmittal & 10 \\
+                A lookup: it already sat in a packet, & \\
+                \quad memo, ordinance, or dataset & 10 \\
+                Facts from the record, plus judgment & 14 \\
+                New analysis or a policy position & 6 \\
+                \bottomrule
+            \end{tabular}
         \end{column}
-        \begin{column}{0.52\textwidth}
-            \footnotesize
-            \textbf{Start now} --- high demand, low privacy risk
-            \begin{itemize}\setlength\itemsep{0pt}
+        \begin{column}{0.46\textwidth}
+            {\scriptsize Kind of record needed: share of all 349 questions and answers}
+
+            \smallskip
+
+            \includegraphics[width=0.95\textwidth]{img/deck-records-needed.pdf}
+        \end{column}
+    \end{columns}
+
+    \medskip
+
+    \begin{alertblock}{A third were lookups}
+        Of the 30 answers that did more than forward a file, 10 were lookups. Six needed judgment that no record holds. Financial records come up in 59\% of questions and answers
+    \end{alertblock}
+
+    \note{Taskforce prompt: implications for the city. One coder, 40 answers: say the sample size out loud. One set of wildfire answers credits more than twenty staff members. The right verb for what a machine could do here is ``draft, with citations'': answers to elected officials go out under a staff member's name, and should.}
+\end{frame}
+
+\begin{frame}{What to liberate first}
+    I ranked the city's holdings on three questions: how often council needs the record, how far back it runs, and how much personal information it carries
+
+    \bigskip
+
+    \begin{columns}[T]
+        \begin{column}{0.31\textwidth}
+            \textbf{Start now}
+
+            {\scriptsize high demand, low privacy risk}
+
+            \smallskip
+
+            \begin{itemize}\small
                 \item Budget books, revenue reports, audits
-                \item Council packets and staff memoranda
+                \item Council packets and staff memos
                 \item Ordinances, resolutions, and code versions
             \end{itemize}
-            \textbf{Next} --- high research value, higher cost
-            \begin{itemize}\setlength\itemsep{0pt}
+        \end{column}
+        \begin{column}{0.31\textwidth}
+            \textbf{Next}
+
+            {\scriptsize high value, higher cost}
+
+            \smallskip
+
+            \begin{itemize}\small
                 \item Minutes and meeting recordings
                 \item Plans and consultant studies
                 \item Board and commission appointments
                 \item Program year-end reports
             \end{itemize}
-            \textbf{With screening} --- personal information
-            \begin{itemize}\setlength\itemsep{0pt}
+        \end{column}
+        \begin{column}{0.31\textwidth}
+            \textbf{Only with screening}
+
+            {\scriptsize personal information}
+
+            \smallskip
+
+            \begin{itemize}\small
                 \item Permits and land records
                 \item Hotline mail and public comment
             \end{itemize}
         \end{column}
     \end{columns}
 
-    \note{Taskforce prompts: implications for the city; key opportunities. The ranking weighs three things: how often council needs the record, how far back it runs, and how much personal information it carries. Appointments are small and cheap, and they supply the identity key: who served on what, when. Detail is in the appendix.}
+    \note{Taskforce prompts: implications for the city; key opportunities. Appointments are small and cheap, and they tell you who served on what, and when, which links every other record to a person's role. The appendix has the detail.}
 \end{frame}
 
-% =========================================================================
-\section{Opportunities and obligations}
-% =========================================================================
+% -------------------------------------------------------------------------
+% Obligations and values
+% -------------------------------------------------------------------------
 
-\begin{frame}{Accessibility remediation}
-    Scanned image documents are unreadable to screen readers
-
-    \medskip
-
-    Six volumes of the city's own budget books, 1,651 pages, have no text layer at all
+\begin{frame}{Accessibility}
+    A scanned page is a picture. A screen reader, the software that reads a page aloud to a blind resident, finds nothing on it
 
     \medskip
 
-    Federal accessibility obligations require the text layer whether or not the city builds anything on top of it
+    Six volumes of the city's own budget books, 1,651 pages, are pictures of this kind
+
+    \medskip
+
+    ACCESSIBILITY-FEDERAL
+
+    \medskip
+
+    ACCESSIBILITY-STATE
 
     \bigskip
 
-    \begin{alertblock}{Consequences}
-        The spending is already owed. The choice is whether it produces a reusable public corpus or a pile of remediated documents
+    \begin{alertblock}{Already owed}
+        The city owes this work whether or not it builds anything else. It can come out as a public corpus or as a pile of repaired files
     \end{alertblock}
 
-    \note{Taskforce prompt: key opportunities and risks. Lead with this in any conversation involving money. It is the only commitment with an external deadline attached.}
+    \note{Taskforce prompt: key opportunities and risks. Lead with this in any conversation about money: it carries an external deadline.}
 \end{frame}
 
-\begin{frame}{Vendor lock-in}
-    \begin{enumerate}\setlength\itemsep{3pt}
-        \item \textbf{Stable, resolvable identifiers for every document.} Cheap, and every later step needs them
-        \item \textbf{Bulk export and programmatic access as contract terms} at renewal. Twenty-six years of budget history had to be rebuilt from PDFs because the budget portal offers no data endpoint
-        \item \textbf{Open document standards} for legislative markup, scanned images, and preservation metadata. Vendors become interchangeable, with no need to win an argument about any one of them
-        \item \textbf{The licensing the city already uses}, extended to its documents
-    \end{enumerate}
-
-    \bigskip
-
-    \begin{alertblock}{Consequences}
-        The open data catalog is already published under a license that permits copying, adaptation, and redistribution without attribution. The license stops at the records portal
-    \end{alertblock}
-
-    \note{Taskforce prompt: what would the city need to do. Item 4 is the disarming one: consistency with the city's own practice, not a new philosophy. Keep it general; no vendor names.}
-\end{frame}
-
-\begin{frame}{Community capacity}
-    The open data program already partners with local civic data groups
+\begin{frame}{The Colorado Open Records Act}
+    CORA-POLICY
 
     \medskip
 
-    A local civic-tech group already maintains a directory of roughly a hundred Boulder datasets
+    CORA-DEADLINE
 
     \medskip
 
-    The law library already digitized the charter
+    CORA-FORMAT
 
     \medskip
 
-    I rebuilt 26 years of the city's budget history from its own PDFs for a newspaper column
+    Every request sends a person searching. A record liberated once is ready for the next request before anyone files it
+
+    \bottomcite{Colorado Open Records Act, C.R.S. \S\S 24-72-200.1 to 24-72-206}
+
+    \note{Taskforce prompt: key opportunities. This is the obligation residents use most directly. Liberation doesn't change what is public under CORA; it changes how long finding it takes.}
+\end{frame}
+
+\begin{frame}{Community values}
+    The city's Sustainability, Equity and Resilience Framework sets the goals behind its budget and comprehensive plan. Under \textbf{Responsibly Governed}, the city commits to a government that
 
     \medskip
 
-    A published corpus becomes a data lake that staff, partners, pipelines, and agents can all draw from
-
-    \bigskip
-
-    \begin{alertblock}{Consequences}
-        The constraint is staff time. Publishing a corpus turns outside interest into capacity the city never has to hire, and it is the only one of these commitments that pays back without a procurement
-    \end{alertblock}
-
-    \note{Taskforce prompt: key opportunities. Name the groups if the room knows them. This is also the answer to ``we don't have the staff for this.''}
-\end{frame}
-
-\begin{frame}{Examples from other sectors}
-    \begin{itemize}\setlength\itemsep{2pt}
-        \item National legislative databases publish point-in-time versions of law, so a reader can see what was in force on a given date
-        \item Federal programs publish legislative data as bulk downloads rather than only through a search box
-        \item National archives run text and handwriting recognition across historical holdings at scale
-        \item Heritage institutions use volunteer transcription as a capacity model requiring no procurement
-        \item Court systems publish structured opinions with stable citations
-        \item Newsrooms build document-mining pipelines for large records releases
-    \end{itemize}
-
-    \bigskip
-
-    \begin{alertblock}{Consequences}
-        Each of them publishes the corpus and treats the search interface as replaceable
-    \end{alertblock}
-
-    \note{Taskforce prompt: relevant examples, kept general. If someone asks which vendor does this: every example here is an institution or a sector, not a product.}
-\end{frame}
-
-% =========================================================================
-\section{Outlook and risks}
-% =========================================================================
-
-\begin{frame}{What happens next, and why I might be wrong}
-    \begin{itemize}\setlength\itemsep{3pt}
-        \item Context windows may grow enough that retrieval architecture becomes unnecessary. The provenance requirement survives either way, which is why I anchored on it
-        \item The binding constraint has already moved from compute to verification and permission: retention schedules, legal review, metadata quality. None of those follow a hardware curve
-        \item Multi-step agentic research on legal precedent is unmeasured on municipal corpora. Errors compound, and nothing surfaces them
-        \item \textbf{Demand may be low.} The hotline suggests otherwise, but one coder and forty messages is thin evidence
-        \item The most likely failure is not technical: a multi-year project dies on a budget cycle and one departure
-    \end{itemize}
-
-    \note{Taskforce prompt: what do we think will happen, and why might we be wrong. Say the demand bullet flat. It is the strongest objection to my own recommendation and the room should hear me make it first.}
-\end{frame}
-
-\begin{frame}{Three kinds of holdings}
-    \begin{description}
-        \item[Already data.] Published, licensed, documented: the open data catalog
-        \item[Could become data.] The archives, the budget books, the hotline and its attachments, the recordings, the backlog. The technology argument is about these
-        \item[Shouldn't become data.] The category with no policy, because nobody writes one until the corpus already exists
-    \end{description}
-
-    \bigskip
-
-    \begin{alertblock}{Consequences}
-        The city can sort each holding into one of the three on purpose. A holding left unsorted gets sorted by whoever builds on it first
-    \end{alertblock}
-
-    \note{Taskforce prompts: key risks; what would the city need to do. This is the deliverable. Offer to circulate this slide alone.}
-\end{frame}
-
-\begin{frame}{Shouldn't become data}
-    Candidates: surveillance feeds, individual utility and recreation customer records, code enforcement complaints naming residents, protective-order addresses, records carrying victim and juvenile information
-
-    \medskip
-
-    \begin{itemize}
-        \item The argument is about \textbf{aggregation, not disclosure}. Records obligations do not change. What changes is whether the city builds the index that makes assembling a dossier trivial
-        \item Practical obscurity is a protection nobody wrote down. Retrieval removes it unless someone decides to keep it
-        \item Precedent exists: the published hotline dataset already replaces contact details with one-way hashes
+    \begin{itemize}\small\setlength\itemsep{3pt}
+        \item ``Models stewardship, resilience, and sustainability of the city's financial, human, \textbf{information}, and physical assets''
+        \item ``Supports strategic decision-making with \ldots{} timely and reliable data and analysis''
+        \item ``Enhances and facilitates \textbf{transparency}, accuracy, efficiency, effectiveness, and quality customer service in all city business''
+        \item ``Disaggregates data by race and ethnicity to ensure programs, policies, and financial decisions do not have a disparate impact on historically excluded community members''
     \end{itemize}
 
     \medskip
 
-    \begin{block}{Exemption, used on purpose}
-        Exemption is the force to resist for the first two kinds of holdings and the mechanism to use for the third. Scoped that way, it makes the other two safe to build
-    \end{block}
+    The framework counts information among the city's assets, alongside money, people, and buildings. The records are the oldest part of that asset, and partners already help maintain it: the open data program works with local civic data groups, and the university law library has digitized the city charter
 
-    \note{Taskforce prompts: key risks; mitigation. Guard against being heard as anti-transparency. Say the aggregation/disclosure distinction twice if needed.}
+    \bottomcite{City of Boulder, ``Sustainability, Equity and Resilience Framework,'' bouldercolorado.gov/sustainability-equity-and-resilience-framework}
+
+    \note{Taskforce prompts: key opportunities; what would the city need to do. These are the city's words, not mine. The fourth objective returns on the equity slide: digitizing records unevenly is a disparate impact of exactly the kind it names.}
 \end{frame}
 
-\begin{frame}{Would impacts fall unevenly in our community?}
-    \begin{enumerate}\setlength\itemsep{4pt}
-        \item \textbf{Digitization order becomes citation order.} What is not scanned is functionally nonexistent to a researcher or an analyst, and the least-digitized holdings are disproportionately those of the least powerful
-        \item \textbf{Text recognition fails unevenly.} It fails worst on old, handwritten, tabular, and non-English material, so retrieval quality degrades along the same axis as the equity concern
-        \item \textbf{Aggregation lands unevenly.} It falls hardest on residents with the most contact with enforcement systems
-    \end{enumerate}
+% -------------------------------------------------------------------------
+% Outlook and risks
+% -------------------------------------------------------------------------
+
+\begin{frame}{What happens next}
+    \begin{columns}[T]
+        \begin{column}{0.56\textwidth}
+            Reading a scanned page costs under a cent today, and the price keeps falling
+
+            \medskip
+
+            Finding the right document, checking what the machine read, and deciding what may be released will still take people. Retention schedules and legal review don't get cheaper with faster chips
+
+            \medskip
+
+            Vendors will arrive with products running on the city's own documents. For the hotline, the product worth buying writes a draft answer with citations, which a staff member checks and signs
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/drake-hotline.png}
+        \end{column}
+    \end{columns}
+
+    \note{Taskforce prompt: what do we think will happen. The meme is the whole recommendation in two panels.}
+\end{frame}
+
+\begin{frame}{Why I might be wrong}
+    \begin{columns}[T]
+        \begin{column}{0.56\textwidth}
+            Demand may be low. My evidence is one coder and 40 hotline answers
+
+            \medskip
+
+            Models may outgrow search. If a model can read every record at once, the city needs less search machinery, though it still needs every answer to cite a page
+
+            \medskip
+
+            An automated assistant that chains several lookups can go wrong at each step without flagging it. Nobody has measured how often on city records
+
+            \medskip
+
+            Most likely of all, the project just stops: multi-year records work dies on one budget cycle or one staff departure
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/this-is-fine.jpg}
+        \end{column}
+    \end{columns}
+
+    \note{Taskforce prompt: why might we be wrong. Say the demand point flatly: it is the strongest objection to my own recommendation, and the room should hear me make it first. The last point is the most likely failure, and it isn't technical.}
+\end{frame}
+
+\begin{frame}{Some records shouldn't become data}
+    \begin{columns}[T]
+        \begin{column}{0.56\textwidth}
+            Sort every holding into one of three kinds: \textbf{already data}, \textbf{could become data}, or \textbf{shouldn't become data}
+
+            \medskip
+
+            The third kind includes surveillance video, utility and recreation customer records, code complaints that name residents, protective-order addresses, and records about victims and juveniles
+
+            \medskip
+
+            The danger is aggregation. Each record can stay obtainable on its own under CORA, while a searchable index would let anyone assemble a dossier in minutes
+
+            \medskip
+
+            The city has done this before: the published hotline replaces every email address with a one-way code
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.75\textwidth]{img/ben-parker.jpg}
+
+            {\scriptsize ``With great power comes great responsibility''}
+        \end{column}
+    \end{columns}
+
+    \note{Taskforce prompts: key risks; mitigation. Guard against being heard as against transparency. Records law doesn't change; what changes is whether the city builds the index. Practical obscurity, the protection of being hard to find, disappears unless someone decides to keep it.}
+\end{frame}
+
+\begin{frame}{Who bears the cost}
+    \begin{columns}[T]
+        \begin{column}{0.56\textwidth}
+            What gets scanned gets cited. Records left on paper drop out of every search and analysis, and the least-digitized records tend to describe the least powerful residents
+
+            \medskip
+
+            OCR does worst on old, handwritten, tabular, and non-English pages, so search quality drops along the same lines
+
+            \medskip
+
+            A searchable index exposes residents with the most contact with code enforcement and police far more than anyone else
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \centering
+            \includegraphics[width=\textwidth]{img/archives-are-incomplete.jpg}
+        \end{column}
+    \end{columns}
 
     \bigskip
 
-    \begin{alertblock}{Consequences}
-        These harms fall on the residents least able to object, through records the city already holds, whether or not anyone intends them. They should set which holdings are digitized first
+    \begin{alertblock}{Set the order on purpose}
+        Let equity decide which holdings are digitized first. The city's own framework already asks it to check data for disparate impact
     \end{alertblock}
 
-    \note{Taskforce prompt: would impacts be disproportionately felt in our community. Do not soften this into a caveat. It is a sequencing constraint: it should change which holdings are digitized first.}
+    \note{Taskforce prompt: would impacts be disproportionately felt in our community. Don't soften this into a caveat. It is a sequencing rule: it should change which holdings the city digitizes first.}
 \end{frame}
 
 \begin{frame}{Key takeaways}
     \begin{enumerate}\setlength\itemsep{4pt}
-        \item The city's records are \textbf{long data}: one jurisdiction, 154 years
-        \item Machine reading is cheap; \textbf{finding and checking} the right pages is the work
-        \item Nobody knows how much of the backlog a machine can read. \textbf{An inventory} comes before a procurement
-        \item \textbf{Provenance first}: every answer cites a document and a page
-        \item Sort each holding: already data, could become data, \textbf{shouldn't become data}
+        \item The city holds \textbf{long data}, and most of it a computer can't yet read
+        \item Reading pages is cheap now; \textbf{finding and checking} them is the work
+        \item The \textbf{hotline} shows the demand: a third of substantive answers were lookups in records the city already holds
+        \item \textbf{Accessibility law, CORA, and the city's own framework} already call for this work
+        \item Before buying anything: \textbf{an inventory}, stable document IDs and bulk export written into contracts, and a rule that every machine answer cites a page
     \end{enumerate}
 
     \bigskip
 
-    \begin{alertblock}{The test}
-        The first proposal that arrives with a demonstration attached: which of the three kinds is its corpus, and which layer is it selling?
+    \begin{alertblock}{A test for the first demonstration}
+        Which of the three kinds of holding is its corpus? Does every answer cite a document and page?
     \end{alertblock}
 
-    \note{Taskforce prompt: what would the city need to do. Ten minutes in a browser and two sprints are not an audit. The finding I hold with the most confidence is the one we cannot close from in here: nobody knows the size of the backlog. If we cannot answer the test's two questions, the demonstration is doing the sorting for us. What the city still holds after a vendor leaves is a choice available now, while it is cheap.}
+    \note{Taskforce prompt: what would the city need to do. Ten minutes in a browser and two sprints are not an audit. The finding I hold with the most confidence is the one nobody can close yet: the size of the backlog. What the city still holds after a vendor leaves is a choice it can make now, while it is cheap.}
 \end{frame}
 
 % =========================================================================
@@ -599,19 +657,19 @@ every change column checks
         \textbf{Record} & \textbf{Serves} & \textbf{What we know of its state} & \textbf{Tier} \\
         \midrule
         Budget books & Financial questions; 26-year series & 2002--2027 in the records portal; 1,651 pages lack text & Start \\
-        Revenue reports & Financial questions & In the records portal, 2018--2024 (chapter 9); also sent as hotline attachments, which are not in the dataset & Start \\
-        Council packets and memoranda & Meeting records; plans; the answers themselves & Recent years in the agenda system; depth unknown & Start \\
-        Ordinances, resolutions, code versions & Legal text; the time key & Current code with a hosted vendor; history in the records portal & Start \\
+        Revenue reports & Financial questions & In the records portal, 2018--2024; also sent as hotline attachments, which are not in the dataset & Start \\
+        Council packets and memos & Meeting records; plans; the answers themselves & Recent years in the agenda system; depth unknown & Start \\
+        Ordinances, resolutions, code versions & Legal text; which law applied when & Current code hosted outside the city; history in the records portal & Start \\
         Minutes and recordings & Deliberation and intent & Unknown; needs inventory & Next \\
-        Plans and consultant studies & Plans and studies & BVCP: 15 editions converted, 1977--2026 & Next \\
-        Board and commission appointments & The identity key & Announced on the hotline; rosters unknown & Next \\
+        Plans and consultant studies & Plans and studies & Comprehensive plan: 15 editions converted, 1977--2026 & Next \\
+        Board and commission appointments & Who served on what, when & Announced on the hotline; rosters unknown & Next \\
         Program year-end reports & Operational data & Some sent as hotline attachments & Next \\
-        Permits and land records & The place key & Department systems; custody split & Screen \\
-        Hotline and public comment & Demand signal; deliberation & 885 records since March 2023; contact details hashed & Screen \\
+        Permits and land records & Where things are & Department systems; custody split & Screen \\
+        Hotline and public comment & What council asks; deliberation & 885 records since March 2023; contact details coded & Screen \\
         \bottomrule
     \end{tabular}
 
-    \note{``Unknown'' is a finding: each one is a line on the inventory.}
+    \note{Each ``unknown'' is a line on the inventory.}
 \end{frame}
 
 \begin{frame}[noframenumbering]{Appendix: which records each theme depends on}
@@ -619,20 +677,7 @@ every change column checks
     \includegraphics[width=\textwidth,height=0.62\textheight,keepaspectratio]{img/hotline-theme-by-records.pdf}
 
     \raggedright\small
-    Financial records sit above 60\% in every theme. The spread across columns is flat: most answers need several kinds of record at once
-\end{frame}
-
-\begin{frame}[noframenumbering]{Appendix: hotline method}
-    \begin{itemize}\small\setlength\itemsep{3pt}
-        \item \textbf{Source.} City open data layer ``Emails to the City Council Hotline'' (CC0): 885 records, March 2, 2023 to September 15, 2026. 106 are off-list or unsolicited mail; 779 remain
-        \item \textbf{Text.} Subject plus the authored top of each message. Quoted thread text, signatures, addresses, hashed contact tokens, and legal boilerplate are removed first
-        \item \textbf{Themes.} Nine keyword dictionaries, multi-label, on all 779 messages
-        \item \textbf{Records needed.} Eight dictionaries, applied only to the 349 council questions and staff responses, where a need is real
-        \item \textbf{Checks.} Primary theme matched in about 22 of 25 messages read by hand. The lookup, mixed, and judgment coding on the hotline frame is a separate hand-coded sample of 40
-        \item \textbf{Limits.} Keywords see words, not intent. Attachments, where many answers live, are not in the data
-    \end{itemize}
-
-    \bottomcite{Code, dictionaries, and outputs: \texttt{code/hotline\_provocation.py}, \texttt{code/hotline\_themes.py}}
+    Financial records come up in more than 60\% of questions and answers in every theme. Most answers need several kinds of record at once
 \end{frame}
 
 \begin{frame}[fragile,noframenumbering]{Appendix: getting a report from the records portal}
@@ -652,7 +697,7 @@ print(response.headers["Content-Type"], len(response.content), response.content[
 # application/pdf 723920 b'%PDF-'
 \end{lstlisting}
 
-    \small \texttt{bundle} is the certificate file the book provides: the city's server is set up in a way browsers forgive and Python doesn't. Chapter 9 also sends the request fields the page adds
+    \small \texttt{bundle} is a certificate file the book provides, because the city's server is set up in a way browsers forgive and Python doesn't. Chapter 9 also sends the request fields the page adds
 
     \bottomcite{Condensed from Keegan, \textit{Web Data Science}, Chapter 9, ``Getting the Files'' (github.com/cuinfoscience/Web-Data-Science-Book)}
 \end{frame}
@@ -676,7 +721,7 @@ for name in REPORTS:
 # (nothing printed: every change column checks)
 \end{lstlisting}
 
-    \small \texttt{to\_number} turns ``\$134,538,892'' or ``(1,145,528)'' into an integer; accountants write a negative number in parentheses
+    \small \texttt{to\_number} turns ``\$134,538,892'' or ``(1,145,528)'' into a whole number; accountants write a negative number in parentheses
 
     \bottomcite{Condensed from Keegan, \textit{Web Data Science}, Chapter 9, ``Reading the Totals Row by Position'' (github.com/cuinfoscience/Web-Data-Science-Book)}
 \end{frame}
