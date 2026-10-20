@@ -161,12 +161,7 @@
     \centering
     \includegraphics[width=0.72\textwidth]{img/budget-index.png}
 
-    \raggedright\small
-    Since 2005, sales and use tax more than doubled and property tax tripled, while adopted staffing grew 28\%. The capital budget swings from year to year
-
-    \bottomcite{Indexed to 2005 = 100. Taxes: audited collections through 2025, 2026 adopted (dashed). Capital: adopted capital budget. Staff: adopted FTE. Nominal dollars. City of Boulder budget books and annual financial reports, via the Charting Boulder budget-history dataset}
-
-    \note{Taskforce prompt: what do we know today. This is the budget sprint's output. 2005 is the first year with all four series; the capital line is the adopted capital budget, a plan, not actual spending, and its dollars are nominal.}
+    \bottomcite{Indexed to 2005 = 100. Taxes: audited collections through 2025, 2026 adopted (dashed). Capital: adopted capital budget. Staff: adopted FTE. Nominal dollars. City of Boulder budget books and annual financial reports, via budget-history dataset}
 \end{frame}
 
 \begin{frame}[fragile]{Teaching with city's records portal}
@@ -222,7 +217,7 @@
 
 \begin{frame}{Analyzing hotline: answers from staff}
     \begin{columns}
-        \begin{column}{0.65\textwidth}
+        \begin{column}{0.55\textwidth}
             Classify each staff answer's subject and body based on keywords into eight kinds of records it draws on
 
             \medskip
@@ -231,37 +226,13 @@
 
             \medskip
 
-            56\% draw on three or more kinds of records; 14\% need none
+            56\% draw on three or more kinds of records
 
             \medskip
 
             Council's questions mention financial records more often (70\%) than staff answers do (43\%)
-
-            \smallskip
-
-            A random 40 answers, coded by hand:
-
-            \smallskip
-
-            \small
-            \begin{tabular}{lr}
-                \toprule
-                \textbf{The answer took} & \textbf{Answers} \\
-                \midrule
-                A resend, a logistics note, or a transmittal & 10 \\
-                A lookup: it already sat in a packet, & \\
-                \quad memo, ordinance, or dataset & 10 \\
-                Facts from the record, plus judgment & 14 \\
-                New analysis or a policy position & 6 \\
-                \bottomrule
-            \end{tabular}
         \end{column}
-        \begin{column}{0.3\textwidth}
-            {\scriptsize Kinds of records named: share of 353 questions and answers}
-
-            \smallskip
-
-            \includegraphics[width=0.95\textwidth]{img/deck-records-needed.pdf}
+        \begin{column}{0.4\textwidth}\includegraphics[width=0.95\textwidth]{img/deck-records-needed.pdf}
         \end{column}
     \end{columns}
 \end{frame}
@@ -311,63 +282,50 @@
 % Obligations and values
 % -------------------------------------------------------------------------
 
-\begin{frame}{Accessibility}
-    ADA requires the city's web content, including PDFs, to meet WCAG 2.1 by 2027
+\begin{frame}{Accessibility and CORA/FOIA}
+    \begin{columns}
+        \begin{column}{.65\textwidth}
+            ADA requires the city's web content, including PDFs, to meet WCAG 2.1 in 2027
 
-    \medskip
-    
-    Scanned documents without text layers and figures without alt-text are endemic throughout municipal archives
-
-    \medskip
-
-    Documents needed for service must be readable while archived scans are exempt
-
-    
-
+            \medskip
+            
+            Scanned documents without text layers and figures without alt-text are endemic throughout municipal archives
+        
+            \medskip
+        
+            Documents needed for service must be readable while archived scans are exempt
+        
+            \medskip
+        
+            Fulfilling CORA requests can be expensive and complex $\rightarrow$ investments in data liberation and rescue could be a longer-term cost saving center
+        \end{column}
+        \begin{column}{.3\textwidth}
+            \includegraphics[width=.95\textwidth]{img/responsive.jpg}
+        \end{column}
+    \end{columns}
     \bottomcite{28 C.F.R. \S\S 35.200--35.201, as amended by 91 Fed.\ Reg.\ 20902 (April 20, 2026); C.R.S. \S 24-34-802 (HB21-1110, HB24-1454)}
 
-    \note{Taskforce prompt: key opportunities and risks. Lead with this in any conversation about money: it carries an external deadline. The archive exemption has four conditions: made before the deadline, kept only for reference or recordkeeping, unaltered, and in a clearly marked archive. An old PDF loses its exemption if residents use it to apply for or reach a service.}
-\end{frame}
-
-\begin{frame}{The Colorado Open Records Act}
-    Colorado declares that ``all public records shall be open for inspection by any person at reasonable times,'' except where the law says otherwise
-
-    \medskip
-
-    A custodian has three working days to respond, or ten in extenuating circumstances. The legislature passed a longer deadline in 2025, and the governor vetoed it
-
-    \medskip
-
-    A record kept in a searchable or sortable format must be released that way. A scan that is only a picture of a page can be released as a picture. The first hour of searching is free; after that the city may charge up to \$41.37 an hour
-
-    \medskip
-
-    Every request sends a person searching. A record liberated once is ready for the next request before anyone files it
-
-    \bottomcite{Colorado Open Records Act, C.R.S. \S\S 24-72-201, 24-72-203(3) and (3.5), 24-72-205(6); SB25-077 (vetoed April 17, 2025)}
-
-    \note{Taskforce prompt: key opportunities. This is the obligation residents use most directly. Liberation doesn't change what is public under CORA; it changes how long finding it takes.}
 \end{frame}
 
 \begin{frame}{Community values}
-    The city's Sustainability, Equity and Resilience Framework sets the goals behind its budget and comprehensive plan. Under \textbf{Responsibly Governed}, the city commits to a government that
+    The city's Sustainability, Equity and Resilience Framework commits the city to a government that:
 
-    \medskip
-
-    \begin{itemize}\small\setlength\itemsep{3pt}
+    \begin{itemize}
         \item ``Models stewardship, resilience, and sustainability of the city's financial, human, \textbf{information}, and physical assets''
         \item ``Supports strategic decision-making with \ldots{} timely and reliable data and analysis''
-        \item ``Enhances and facilitates \textbf{transparency}, accuracy, efficiency, effectiveness, and quality customer service in all city business''
+        \item ``Enhances and facilitates \textbf{transparency}, accuracy, efficiency, effectiveness... in all city business''
         \item ``Disaggregates data by race and ethnicity to ensure programs, policies, and financial decisions do not have a disparate impact on historically excluded community members''
     \end{itemize}
 
     \medskip
 
-    The framework counts information among the city's assets, alongside money, people, and buildings. The records are the oldest part of that asset, and partners already help maintain it: the open data program works with local civic data groups, and the university law library has digitized the city charter
+    Information like records are a city assets, alongside money, people, and buildings
 
-    \bottomcite{City of Boulder, ``Sustainability, Equity and Resilience Framework,'' bouldercolorado.gov/sustainability-equity-and-resilience-framework}
+    \medskip
 
-    \note{Taskforce prompts: key opportunities; what would the city need to do. These are the city's words, not mine. The fourth objective returns on the equity slide: digitizing records unevenly is a disparate impact of exactly the kind it names.}
+    Uneven digitization and accessibility limits ability for electeds, staff, researchers, journalists, \textit{etc}. to study disparate impacts
+
+    \bottomcite{City of Boulder, ``\href{https://www.bouldercolorado.gov/sustainability-equity-and-resilience-framework}{Sustainability, Equity and Resilience Framework}.''
 \end{frame}
 
 % -------------------------------------------------------------------------
