@@ -17,30 +17,6 @@
 
 \maketitle
 
-% -------------------------------------------------------------------------
-% Opening: the hotline question
-% -------------------------------------------------------------------------
-
-\begin{frame}{The council hotline}
-    Council members send questions to staff through the council hotline. Staff answer and the city publishes every message as open data
-
-    \medskip
-
-    779 messages since March 2023 --- 207 questions from council and 142 answers from staff
-
-    \medskip
-
-    Many of those answers point to budgets, presentations, ordinance, and reports already in the city's archives
-
-    \bigskip
-
-    \begin{alertblock}{Question}
-        How many of council's questions could be answered with staff-supervised automation using the city's own records?
-    \end{alertblock}
-
-    \bottomcite{City of Boulder open data, ``\href{https://bouldercolorado.gov/boulder-council-hotline-archives}{Emails to the City Council Hotline},'' March 2, 2023 to September 15, 2026}
-\end{frame}
-
 \begin{frame}{Long data}
     \textit{Big data} means many records but typically over a short span
 
@@ -86,13 +62,20 @@
                 \item \textbf{Layout analysis} finds the headings, paragraphs, tables, and figures on a page, and the order to read them in
                 \item \textbf{Optical character recognition (OCR)} reads printed or handwritten text from a picture of a page
                 \item \textbf{Table recognition} rebuilds a table's rows, columns, and cells
-                \item \textbf{Field extraction} pulls named items, such as a date or a total, out of a form
+                \item \textbf{Field extraction} pulls named items like dates or totals out of forms
             \end{itemize}
+
+            \medskip
+            
+            Contemporary AI models have rapidly improving ability to convert complex PDFs into more accessible text, markdown, HTML formats
         \end{column}
-        \begin{column}{.3\textwidth}
+        \begin{column}{.3\textwidth}\centering
             \includegraphics[width=\textwidth]{2026-10-21-ett/img/datalab.png}
+            {\footnotesize From \url{https://www.datalab.to}}
         \end{column}
     \end{columns}
+
+    \bottomcite{Yihao Ding, \textit{et al}. 2026. A Survey on MLLM-based Visually Rich Document Understanding: Methods, Challenges, and Emerging Trends. In \textit{ACL 2026}, pp. 13319–13340.}
 \end{frame}
 
 \begin{frame}{Data liberation and rescue}
@@ -112,7 +95,7 @@
     \bottomcite{Tom Lee, ``PDF Liberation: Why It Matters and How You Can Help,'' Sunlight Foundation, January 24, 2014; \textit{Georgia v. Public.Resource.Org, Inc.}, 590 U.S. 255 (2020)}
 \end{frame}
 
-\begin{frame}{What liberation could do for the city}
+\begin{frame}{Data liberation for the City of Boulder}
     \begin{itemize}\setlength\itemsep{4pt}
         \item \textbf{Hotline answers.} Aiding staff in research to answer questions from council and other departments
         \item \textbf{Budget history.} Converting PDF tables into accessible data formats
@@ -128,32 +111,44 @@
 % -------------------------------------------------------------------------
 
 \begin{frame}{Two data liberation sprints}
-    I have already piloted several data liberation sprints using local archival government data
+    I have already piloted several data liberation sprints using local government archives
 
     \bigskip
 
     \begin{columns}
-        \begin{column}{0.47\textwidth}
-            \textbf{City budget books, 2002--2027}\par\vspace{-0.3ex}\rule{\linewidth}{0.08em}
+        \begin{column}{0.47\textwidth}\small 
+            \textbf{City budget books, 2002--2027}\par\vspace{-5pt}\rule{\linewidth}{0.1em}
+
+            \href{https://documents.bouldercolorado.gov/WebLink/Browse.aspx?id=187445&dbid=0&repo=LF8PROD2&cr=1}{City budgets}
+            
+            \smallskip
+            
+            34 PDFs and 10,843 pages from city records. 
+
+            \smallskip
+            
+            6 volumes needed to be OCR'd
 
             \smallskip
 
-            34 PDFs and 10,843 pages from the city's records portal. Six volumes contain only pictures that needed to be OCR'd
-
-            \smallskip
-
-            \textbf{Result:} 450 figures across 26 years, each traced to its source document
+            450 values traced to source documents and reconciled
         \end{column}
-        \begin{column}{0.47\textwidth}
-            \textbf{State school yearbooks, 1986--1999}\par\vspace{-0.3ex}\rule{\linewidth}{0.08em}
+        \begin{column}{0.47\textwidth}\small 
+            \textbf{CDE enrollment yearbooks, 1986--2025}\par\vspace{-5pt}\rule{\linewidth}{0.1em}
+            
+            \smallskip
+
+            \href{https://spl.cde.state.co.us/artemis/edserials/ed27919internet/}{Pupil membership}
+            
+            Scanned tables of enrollment by grade and school district
 
             \smallskip
 
-            The text stored in the scans recovered 3.9\% of one table's cells. OCR read the rest at 0.75 cents a page, about \$5 for fourteen volumes
+            OCR and table extraction using Datalab
 
             \smallskip
 
-            \textbf{Result:} of 1,269 figures read twice, 1,267 agree exactly
+            1,269 values extracted and audited for BVSD and SVVSD
         \end{column}
     \end{columns}
 
@@ -163,99 +158,60 @@
 \end{frame}
 
 \begin{frame}[fragile]{Teaching with city's records portal}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            Chapter 9 of my textbook walks students through one folder of the city's records portal: the Finance Department's year-end revenue reports
-
-            \bigskip
-
-            Each report opens with a table of sales and use tax, the city's largest source of revenue, for this year and last
-
-            \medskip
-
-            It reads the totals row, then checks the row against the report's own arithmetic: this year minus last year must equal the change the report prints
-        \end{column}
-        \begin{column}{0.46\textwidth}
-            
-        \end{column}
-    \end{columns}
+    Week 09 of my Web Data Science course uses Finance Department's year-end revenue reports: \url{https://cuinfoscience.github.io/Web-Data-Science-Book/ch-09-pdfs.html}
 
     \bigskip
 
-Five match to the dollar. The two printings of 2018 differ by \$38,959, and neither report explains why
-    
-\end{frame}
+    Access city's Laserfische archives, download report PDFs, find and extract tables, check arithmetic against reported margins and prior years
 
-\begin{frame}{Eight years of sales and use tax}
-    \centering
-    \includegraphics[width=0.66\textwidth]{img/sales-use-tax.png}
-
-    \raggedright
-
-    \medskip
-
-    Down 4.76\% in 2020, up more than 10\% in 2021 and again in 2022, down 0.92\% in 2024. Every bar traces to a page in a named report
-
-    \smallskip
-
-    {\scriptsize Total sales and use tax, 2017--2024, read from seven year-end revenue reports; each year's latest printing; dollars of each year, not adjusted for inflation}
-
-    \bottomcite{Keegan, \textit{Web Data Science}, Chapter 9, ``Case Study: Boulder Revenue Reports''; the city's revenue reports, retrieved October 6, 2026}
-
-    \note{Taskforce prompt: what do we know today. Two requests per report, a page found by its wording, one row read by position, one arithmetic check. The method already works on the city's records.}
+    \begin{center}
+        \includegraphics[width=.475\textwidth]{/img/revenue.png}
+        \hfill
+        \includegraphics[width=.475\textwidth]{img/sales-use-tax.png}
+    \end{center}
 \end{frame}
 
 % -------------------------------------------------------------------------
 % The hotline case study
 % -------------------------------------------------------------------------
 
-\begin{frame}{The hotline data}
-    The city publishes the hotline under a public-domain license: 885 messages from March 2, 2023 to September 15, 2026
+\begin{frame}{Council hotline}
+    Council members and staff exchange questions and answers via council hotline
 
     \medskip
 
-    I set aside 106 messages sent from outside the list. Of the 779 that remain, 207 are council questions and 142 are staff answers
+    779 messages since March 2023: 207 questions from council and 142 answers from staff
 
     \medskip
 
-    Keyword lists then labeled each message's subject and its author's own words, with quoted replies and signatures removed: nine policy themes, and eight kinds of record an answer would need. A message can carry several labels
+    Many of those answers point to budgets, presentations, ordinance, and reports already in the city's archives
 
-    \medskip
+    \bigskip
 
-    I read 25 messages by hand. The keywords named the main theme correctly in about 22
-
-    \medskip
-
-    \begin{alertblock}{Limits}
-        Keywords see words, not intent. And the attachments, where many answers live, are missing from the published data
+    \begin{alertblock}{Question}
+        How many of council's questions could be answered with staff-supervised automation using the city's own records?
     \end{alertblock}
 
-    \bottomcite{Code, keyword lists, and labels: \texttt{code/hotline\_provocation.py}, \texttt{code/hotline\_themes.py}, \texttt{code/hotline-labels-all.csv}}
-
-    \note{Taskforce prompt: what do we know today. The keyword lists are short on purpose, so anyone can read them and dispute them. Offer the code.}
+    \bottomcite{City of Boulder open data, ``\href{https://bouldercolorado.gov/boulder-council-hotline-archives}{Emails to the City Council Hotline},'' March 2, 2023 to September 15, 2026}
 \end{frame}
 
-\begin{frame}{What council asks about}
-    \centering
-    \includegraphics[width=\textwidth,height=0.58\textheight,keepaspectratio]{img/deck-themes-by-quarter.pdf}
-
-    \raggedright\small
-
+\begin{frame}{Analyzing hotline: questions from council}
     \medskip
 
-    Budget questions run through every quarter, from a third of messages in 2023 to 43\% in 2025 and 2026. Wildfire and climate grew from 11\% of messages in 2023 to 32\% in 2026. Homelessness held near 13\% for three years, then fell to 1\% in 2026
+    Classify each message's subject and body based on keywords into nine policy themes
 
-    \bottomcite{All 779 hotline-list messages, labeled by keyword; shares of each year's messages}
 
-    \note{Taskforce prompt: implications for the city. A message can touch several themes, so shares add to more than 100\%.}
+    \begin{center}
+        \includegraphics[width=.85\textwidth]{img/deck-themes-by-quarter.pdf}
+    \end{center}
+
+    \bottomcite{Code, keyword lists, and labels: \texttt{code/hotline\_provocation.py}, \texttt{code/hotline\_themes.py}, \texttt{code/hotline-labels-all.csv}}
 \end{frame}
 
-\begin{frame}{What the answers needed}
+\begin{frame}{Analyzing hotline: answers from staff}
     \begin{columns}
-        \begin{column}{0.5\textwidth}
-            I sorted a random 40 of the 142 staff answers by what each one took. One coder, me, so treat the counts as a first look
-
-            \medskip
+        \begin{column}{0.65\textwidth}
+            
 
             \small
             \begin{tabular}{lr}
@@ -270,67 +226,47 @@ Five match to the dollar. The two printings of 2018 differ by \$38,959, and neit
                 \bottomrule
             \end{tabular}
         \end{column}
-        \begin{column}{0.46\textwidth}
-            {\scriptsize Kind of record needed: share of all 349 questions and answers}
-
-            \smallskip
-
+        \begin{column}{0.3\textwidth}
+        
             \includegraphics[width=0.95\textwidth]{img/deck-records-needed.pdf}
         \end{column}
     \end{columns}
-
-    \medskip
-
-    \begin{alertblock}{A third were lookups}
-        Of the 30 answers that did more than forward a file, 10 were lookups. Six needed judgment that no record holds. Financial records come up in 59\% of questions and answers
-    \end{alertblock}
-
-    \note{Taskforce prompt: implications for the city. One coder, 40 answers: say the sample size out loud. One set of wildfire answers credits more than twenty staff members. The right verb for what a machine could do here is ``draft, with citations'': answers to elected officials go out under a staff member's name, and should.}
 \end{frame}
 
 \begin{frame}{What to liberate first}
-    I ranked the city's holdings on three questions: how often council needs the record, how far back it runs, and how much personal information it carries
+    How often council needs the record? How far back it runs? How much personal information?
 
     \bigskip
 
-    \begin{columns}
+    \begin{columns}[T]\small 
         \begin{column}{0.31\textwidth}
             \textbf{Start now}
 
-            {\scriptsize high demand, low privacy risk}
-
-            \smallskip
-
             \begin{itemize}\small
-                \item Budget books, revenue reports, audits
-                \item Council packets and staff memos
-                \item Ordinances, resolutions, and code versions
+                \item Budgets, revenue, audits
+                \item Council packets
+                \item Staff memos
+                \item Ordinances, resolutions
+                \item Code versions
+                \item Reports and plans
             \end{itemize}
         \end{column}
         \begin{column}{0.31\textwidth}
             \textbf{Next}
 
-            {\scriptsize high value, higher cost}
-
-            \smallskip
-
             \begin{itemize}\small
-                \item Minutes and meeting recordings
-                \item Plans and consultant studies
-                \item Board and commission appointments
+                \item Minutes and recordings
+                \item Board and commissions
                 \item Program year-end reports
             \end{itemize}
         \end{column}
         \begin{column}{0.31\textwidth}
             \textbf{Only with screening}
 
-            {\scriptsize personal information}
-
-            \smallskip
-
             \begin{itemize}\small
                 \item Permits and land records
-                \item Hotline mail and public comment
+                \item Contracts
+                \item Emails
             \end{itemize}
         \end{column}
     \end{columns}
