@@ -1,18 +1,4 @@
-% ==========================================================================
-% Long Data -- City of Boulder Emerging Technologies Taskforce
-% October 21, 2026, 4:00-5:30pm (virtual); a talk of up to 15 minutes on
-% "Emerging technology for improved access to and use of historic
-% documentation"
-% Build:  latexmk -pdf 2026-10-21-ett.tex   (from this folder; run twice)
-% Notes:  latexmk -pdf -jobname=2026-10-21-ett-notes \
-%           -usepretex='\def\shownotes{}' 2026-10-21-ett.tex
-% Format: the INFO 4617 course decks (Gotham theme; preamble in common/).
-% No section dividers; no block environments; at most one alertblock a frame.
-% Each frame's speaker note names the taskforce prompt it answers.
-% ==========================================================================
-% onlytextwidth: columns span the text width only, so a column's text starts at
-% the same left margin as text outside columns (beamer's default spreads
-% columns across the whole page, margins included, and centers them)
+% 
 \documentclass[9pt,aspectratio=169,onlytextwidth]{beamer}
 % Resolve the theme and preamble in common/ when compiling from this folder
 \makeatletter\def\input@path{{common/}}\makeatother
@@ -56,35 +42,31 @@
 \end{frame}
 
 \begin{frame}{Long data}
-    \begin{columns}
-        \begin{column}{0.6\textwidth}
-            \textit{Big data} means many records but typically over a short span
+    \textit{Big data} means many records but typically over a short span
 
-            \medskip
+    \medskip
 
-            Municipal records often run continuously for decades $\rightarrow$ \textit{long data}
+    Municipal records often run continuously for decades $\rightarrow$ \textit{long data}
 
-            \medskip
+    \medskip
 
-            Long data can illustrate trends, establish precedents, enable comparisons, and uncover context 
+    Long data can illustrate trends, establish precedents, enable comparisons, and uncover context 
 
-            \medskip
+    \medskip
 
-            Long data also poses challenges around accessibility, standards, comparability
-        \end{column}
-        \begin{column}{0.3\textwidth}
-            \scriptsize
-            \begin{tabular}{lll}
-                \toprule
-                \textbf{Holding} & \textbf{Accessible?} & \textbf{Amount} \\
-                \midrule
-                Digital files with text & Yes & Small \\
-                Scanned pages           & No  & Large \\
-                Paper, film, audio      & No  & Unknown \\
-                \bottomrule
-            \end{tabular}
-        \end{column}
-    \end{columns}
+    Long data also poses challenges around accessibility, standards, comparability
+            
+    \begin{center}
+        \begin{tabular}{lll}
+            \toprule
+            \textbf{Holding} & \textbf{Accessible?} & \textbf{Amount} \\
+            \midrule
+            Digital files with text & Yes & Small \\
+            Scanned pages           & No  & Large \\
+            Paper, film, audio      & No  & Unknown \\
+            \bottomrule
+        \end{tabular}
+    \end{center}
 
     \bottomcite{Samuel Arbesman, ``Stop Hyping Big Data and Start Paying Attention to `Long Data','' \textit{Wired}, January 29, 2013}
 \end{frame}
@@ -94,12 +76,12 @@
 % -------------------------------------------------------------------------
 
 \begin{frame}{Document understanding}
-    \begin{columns}[T]
-        \begin{column}{0.52\textwidth}
-            \textbf{Document understanding} is the research field, and the software, that turns a page into data a computer can use. Its main tasks:
+    \begin{columns}
+        \begin{column}{width=.65\textwidth}
+            \textit{Document understanding} is a research field and software frameworks that turn documents into data
 
             \medskip
-
+            
             \begin{itemize}\small
                 \item \textbf{Layout analysis} finds the headings, paragraphs, tables, and figures on a page, and the order to read them in
                 \item \textbf{Optical character recognition (OCR)} reads printed or handwritten text from a picture of a page
@@ -107,86 +89,63 @@
                 \item \textbf{Field extraction} pulls named items, such as a date or a total, out of a form
             \end{itemize}
         \end{column}
-        \begin{column}{0.44\textwidth}
-            Tools for this work fall into three groups
-
-            \medskip
-
-            \begin{itemize}\small
-                \item Converters that copy text already stored in a file: fast and exact, and blind to scans
-                \item Chains of small models, one for each task, that run on an ordinary computer
-                \item Vision-language models, which look at an image of the page and write the whole page out. The most capable, and the most expensive to run
-            \end{itemize}
-
-            \medskip
-
-            None of them chooses which document to read, checks its own output, or decides what the public may see
+        \begin{column}{width=.3\textwidth}
+            \includegraphics[width=\textwidth]{2026-10-21-ett/img/datalab.png}
         \end{column}
     \end{columns}
-
-    \bottomcite{Keegan, \textit{Web Data Science}, Chapter 9, ``Document Understanding'' (github.com/cuinfoscience/Web-Data-Science-Book)}
-
-    \note{Taskforce prompt: overview of the technology. Keep this general; the chapter names specific tools, and the taskforce asked us not to. The last line scopes the technology: the three things it leaves to people are the three the rest of the talk is about.}
 \end{frame}
 
-\begin{frame}{Data liberation}
-    \textbf{Data liberation} moves information that is already public out of the formats that bury it (scans, PDFs, portals without an export button) and into data anyone can reuse, with a record of where every value came from
+\begin{frame}{Data liberation and rescue}
+    \textit{Data liberation} moves information that is already public out of the formats that bury it (scans, PDFs, portals) and into open and accessible data formats
+
+    \textit{Data rescue} is a grassroots interdisciplinary movement to preserve public datasets from decay and censorship
 
     \medskip
 
-    The records are public before and after. Liberation lowers the cost of using them
-
-    \bigskip
-
-    \begin{itemize}\small\setlength\itemsep{3pt}
-        \item \textbf{2009.} RECAP, a browser extension built at Princeton, copies federal court documents that users have already paid for into a free public archive
+    \begin{itemize}\setlength\itemsep{3pt}
         \item \textbf{2014.} The Sunlight Foundation runs a PDF Liberation Hackathon to build shared tools for pulling tables out of government PDFs
-        \item \textbf{2017 on.} The Public Utility Data Liberation project turns federal energy filings into one documented, open database
-        \item \textbf{2020.} The U.S. Supreme Court rules in \textit{Georgia v. Public.Resource.Org} that the state's annotated code cannot be copyrighted
-        \item \textbf{Boulder.} Boulder Public Data rebuilds the county's precinct election results, 2004--2024, from published statements of vote
+        \item \textbf{2017 on.} The Public Utility Data Liberation project turns federal energy filings into an open and documented database
+        \item \textbf{2020.} SCOTUS rules in \textit{Georgia v. Public.Resource.Org} that the state's annotated code cannot be copyrighted
+        \item \textbf{2025 on.} Researchers improvise technical capacity to archive data before it is deleted by the Trump administration
     \end{itemize}
 
     \bottomcite{Tom Lee, ``PDF Liberation: Why It Matters and How You Can Help,'' Sunlight Foundation, January 24, 2014; \textit{Georgia v. Public.Resource.Org, Inc.}, 590 U.S. 255 (2020)}
-
-    \note{Taskforce prompt: relevant examples, kept general. Every example is a nonprofit, a university project, or a court; none is a product. The Boulder entry is a local volunteer effort, which is the capacity argument in miniature.}
 \end{frame}
 
 \begin{frame}{What liberation could do for the city}
     \begin{itemize}\setlength\itemsep{4pt}
-        \item \textbf{Hotline answers.} Staff drafting a reply to council find the memo that already answered it, with the page cited
-        \item \textbf{Budget history.} A 26-year series in which every figure points to its page, rebuilt once instead of by every analyst who needs it
+        \item \textbf{Hotline answers.} Aiding staff in research to answer questions from council and other departments
+        \item \textbf{Budget history.} Converting PDF tables into accessible data formats
         \item \textbf{The law on a date.} Which version of an ordinance was in force when a permit was issued
         \item \textbf{Records requests.} A document made searchable once is ready for every later request that asks for it
         \item \textbf{Accessibility.} Every scanned page gains text that a screen reader can speak
         \item \textbf{Research and reporting.} Residents, reporters, and the university work from the same corpus as staff
     \end{itemize}
-
-    \note{Taskforce prompts: implications for the city; key opportunities. The first item is the hotline again: this is the use the evidence later in the talk speaks to most directly.}
 \end{frame}
 
 % -------------------------------------------------------------------------
 % What we know today: sprints and the chapter 9 demo
 % -------------------------------------------------------------------------
 
-\begin{frame}{Two liberation sprints}
-    I tried this twice, on my own time, for a newspaper column
+\begin{frame}{Two data liberation sprints}
+    I have already piloted several data liberation sprints using local archival government data
 
     \bigskip
 
-    \begin{columns}[T]
+    \begin{columns}
         \begin{column}{0.47\textwidth}
-            \textbf{City budget books, 2002--2027}
+            \textbf{City budget books, 2002--2027\bottomrule}
 
             \smallskip
 
-            34 PDFs and 10,843 pages from the city's records portal. Six volumes, 1,651 pages, contain no text at all, only pictures of pages
+            34 PDFs and 10,843 pages from the city's records portal. Six volumes contain only pictures that needed to be OCR'd
 
             \smallskip
 
             \textbf{Result:} 450 figures across 26 years, each traced to its source document
         \end{column}
         \begin{column}{0.47\textwidth}
-            \textbf{State school yearbooks, 1986--1999}
+            \textbf{State school yearbooks, 1986--1999\bottomrule}
 
             \smallskip
 
@@ -200,86 +159,31 @@
 
     \bigskip
 
-    Reading the pages cost a few dollars. Finding the right pages, checking every figure, and recording every gap took nearly all of the effort
-
-    \bottomcite{Source: Charting Boulder repository, budget-history and alternatives folders}
-
-    \note{Taskforce prompt: what do we know today. If one person can do this for a column, the city can do it for the public record.}
+    Agent pipelines to identify page ranges, orchestrate OCR, extract tables, audit margins, record gaps, compare across volumes
 \end{frame}
 
-\begin{frame}[fragile]{Getting a report from the records portal}
-    \begin{columns}[T]
+\begin{frame}[fragile]{Teaching with city's records portal}
+    \begin{columns}
         \begin{column}{0.5\textwidth}
             Chapter 9 of my textbook walks students through one folder of the city's records portal: the Finance Department's year-end revenue reports
 
-            \medskip
+            \bigskip
 
-            The folder's page arrives empty, saying ``Loading...''. A script then asks the portal for the folder's contents. The chapter's code sends that same request
-
-            \medskip
-
-            Every download gets checked. A real PDF starts with the characters \texttt{\%PDF-}; for a scanned record, the portal sends back an empty file
-        \end{column}
-        \begin{column}{0.46\textwidth}
-\begin{lstlisting}[language={},basicstyle=\ttfamily\scriptsize,frame=single]
-\Central Records\Finance\Reports\Revenue Reports
-7 entries
-194346 2021 (folder)
-194359 2022 (folder)
-194372 2023 (folder)
-194385 2024 (folder)
-194398 Revenue Report 2018 (15 pages)
-194399 Revenue Report 2019 (14 pages)
-194400 Revenue Report 2020 (16 pages)
-
-application/pdf 723920 b'%PDF-'
-\end{lstlisting}
-            {\scriptsize What the chapter's code printed in October 2026: the folder's contents, then the December 2024 report's file type, size, and first characters}
-        \end{column}
-    \end{columns}
-
-    \bigskip
-
-    \begin{alertblock}{One report at a time}
-        The portal answers one request at a time. On October 6, 2026, it stopped answering after 13 to 17 requests in a row and came back after a five-minute pause
-    \end{alertblock}
-
-    \note{Taskforce prompt: what do we know today. Say ``records portal''; no product names. The code is in the appendix.}
-\end{frame}
-
-\begin{frame}[fragile]{Reading the totals}
-    \begin{columns}[T]
-        \begin{column}{0.5\textwidth}
             Each report opens with a table of sales and use tax, the city's largest source of revenue, for this year and last
-
-            \medskip
-
-            The code finds that table by its opening sentence rather than its page number, because the 2020 report put a restatement letter in front of it
 
             \medskip
 
             It reads the totals row, then checks the row against the report's own arithmetic: this year minus last year must equal the change the report prints
         \end{column}
         \begin{column}{0.46\textwidth}
-\begin{lstlisting}[language={},basicstyle=\ttfamily\scriptsize,frame=single]
-('2017', '2018')
-['$134,538,892', '$140,648,710',
- '$6,109,818', '4.54%']
-
-14 figures from 7 reports;
-every change column checks
-\end{lstlisting}
-            {\scriptsize The 2018 report's two years, then its totals row: last year, this year, the change in dollars, and the change in percent}
+            
         \end{column}
     \end{columns}
 
     \bigskip
 
-    \begin{alertblock}{Two printings of 2018}
-        Six years appear in two reports each. Five match to the dollar. The two printings of 2018 differ by \$38,959, and neither report explains why
-    \end{alertblock}
-
-    \note{Taskforce prompt: what do we know today. A machine reading that can't be checked against the document's own arithmetic is a guess. The chart on the next slide uses each year's latest printing.}
+Five match to the dollar. The two printings of 2018 differ by \$38,959, and neither report explains why
+    
 \end{frame}
 
 \begin{frame}{Eight years of sales and use tax}
@@ -347,7 +251,7 @@ every change column checks
 \end{frame}
 
 \begin{frame}{What the answers needed}
-    \begin{columns}[T]
+    \begin{columns}
         \begin{column}{0.5\textwidth}
             I sorted a random 40 of the 142 staff answers by what each one took. One coder, me, so treat the counts as a first look
 
@@ -389,7 +293,7 @@ every change column checks
 
     \bigskip
 
-    \begin{columns}[T]
+    \begin{columns}
         \begin{column}{0.31\textwidth}
             \textbf{Start now}
 
@@ -510,7 +414,7 @@ every change column checks
 % -------------------------------------------------------------------------
 
 \begin{frame}{What happens next}
-    \begin{columns}[T]
+    \begin{columns}
         \begin{column}{0.56\textwidth}
             Reading a scanned page costs under a cent today, and the price keeps falling
 
@@ -532,7 +436,7 @@ every change column checks
 \end{frame}
 
 \begin{frame}{Why I might be wrong}
-    \begin{columns}[T]
+    \begin{columns}
         \begin{column}{0.56\textwidth}
             Demand may be low. My evidence is one coder and 40 hotline answers
 
@@ -558,7 +462,7 @@ every change column checks
 \end{frame}
 
 \begin{frame}{Some records shouldn't become data}
-    \begin{columns}[T]
+    \begin{columns}
         \begin{column}{0.56\textwidth}
             Sort every holding into one of three kinds: \textbf{already data}, \textbf{could become data}, or \textbf{shouldn't become data}
 
@@ -586,7 +490,7 @@ every change column checks
 \end{frame}
 
 \begin{frame}{Who bears the cost}
-    \begin{columns}[T]
+    \begin{columns}
         \begin{column}{0.56\textwidth}
             What gets scanned gets cited. Records left on paper drop out of every search and analysis, and the least-digitized records tend to describe the least powerful residents
 
