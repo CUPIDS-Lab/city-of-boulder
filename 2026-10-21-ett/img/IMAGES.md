@@ -16,6 +16,7 @@ memes for the outlook and risk frames.
 | `archives-are-incomplete.jpg` | 20 Who bears the cost | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-07/img/archives-are-incomplete.jpg` (*Star Wars: Episode II*, "Perhaps the archives are incomplete"), the instructor's pick |
 | `datalab.png` | 3 Document understanding | not yet recorded | added in Overleaf on 2026-10-20 (commit `818d68a`) | not yet recorded: the page it shows, its URL, and the capture date |
 | `budget-index.png` | Twenty-two years of the city's budget | chart | 2026-10-20, matplotlib, by `code/long-data-analysis.ipynb` | `budget-history-wide.csv` in the Charting Boulder budget-history folder (`brianckeegan/charting-boulder-private`, `2027-XX-budget-history/`, commit `a0e3825`), which transcribes the city's budget books and annual financial reports. Staffing, sales and use tax, property tax, and the capital budget, 2005–2026, each indexed to 2005 = 100 |
+| `responsive.jpg` | Accessibility and CORA/FOIA | meme | added in Overleaf on 2026-10-20 (commit `5b6e796`) | not yet recorded: the template and where it came from |
 
 ## Notes
 
