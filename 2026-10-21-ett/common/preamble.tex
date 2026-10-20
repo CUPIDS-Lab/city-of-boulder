@@ -61,36 +61,39 @@
 \setbeamercolor{block body alerted}{fg=black, bg=cugold!10}
 
 % ------------------------------------------------------------------ footline
-% This talk's copy pads the page number further from the slide's right and
-% bottom edges than the course decks do (dp=2ex, 4ex), so \bottomcite below
-% sits 4.5ex up, flush on the taller box.
-\setbeamertemplate{footline}{
-  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=2ex,right]{footline}
-    {\footnotesize \insertframenumber{} of \inserttotalframenumber}
-    \hspace*{4ex}
-  \end{beamercolorbox}
+% This talk's copy differs from the course decks' here. The page number and
+% \bottomcite share one baseline, \footdepth above the slide's bottom edge,
+% and both sit inside the text margins: the citation starts where body text
+% starts (\beamer@leftmargin), and the page number ends where body text ends
+% (\beamer@rightmargin). The footer box has fixed heights in points, so the
+% citation's baseline can be set to the same length.
+\makeatletter
+\newlength{\footdepth}\setlength{\footdepth}{8pt}
+% What the footer's right end says; the appendix renews it to "Appendix"
+\newcommand{\footlabel}{\insertframenumber{} of \inserttotalframenumber}
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=9pt,dp=\footdepth,right]{footline}%
+    {\footnotesize\footlabel}\hspace*{\beamer@rightmargin}%
+  \end{beamercolorbox}%
 }
 
 % ------------------------------------------------------------------ helpers
-% \bottomcite{text} -- a small attribution/citation line, drawn at a fixed
-% position flush above the page number on every frame. Placed via a TikZ
-% overlay anchored to the physical page rather than to the frame body, so
-% it neither depends on how much content precedes it (unlike \vspace*{\fill},
-% which inherits beamer's own bottom text-margin and drifts inside a
-% `columns` environment) nor competes with the footline template's own
-% fixed-height box (which clips a second stacked line -- see git history).
-% 3.5ex exactly clears the footline box's own height (ht=2.5ex + dp=1ex),
-% so the rule sits flush on top of it -- verified against every existing
-% \bottomcite call in this repo with no body-content collisions (see the
-% commit that introduced this). 2ex matches the page number's own margin.
+% \bottomcite{text} -- a small attribution or citation, set on the page
+% number's baseline at the left text margin, with a thin rule above it. A
+% TikZ overlay anchored to the physical page places it, so it doesn't depend
+% on how much content precedes it and takes no room from the frame body. It
+% is a bottom-aligned \parbox, so a citation that wraps grows upward and its
+% last line stays on the page number's baseline; its width stops 5em short of
+% the right text margin, leaving room for the page number.
 \newcommand{\bottomcite}[1]{%
   \begin{tikzpicture}[remember picture, overlay]
-    \node[anchor=south west, align=flush left,
-          text width=\dimexpr\paperwidth-8ex\relax, inner sep=0pt]
-      at ([xshift=4ex, yshift=4.5ex]current page.south west)
-      {\tiny\rule{\linewidth}{0.3pt}\\[-1.8ex]#1};
+    \node[anchor=base west, inner sep=0pt]
+      at ([xshift=\beamer@leftmargin, yshift=\footdepth]current page.south west)
+      {\parbox[b]{\dimexpr\paperwidth-\beamer@leftmargin-\beamer@rightmargin-5em\relax}{%
+        \raggedright\tiny\rule{\linewidth}{0.3pt}\\#1}};
   \end{tikzpicture}%
 }
+\makeatother
 
 % Consistent code styling for the Wednesday "applied notebook" frames.
 \lstdefinestyle{wds}{
