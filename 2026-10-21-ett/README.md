@@ -86,8 +86,9 @@ data, with a Markdown cell before each step. Run it from `code/`.
    that file without the network.
 3. It draws the three hotline charts and prints every hotline number the
    slides quote.
-4. It draws the budget index chart from `budget-history-wide.csv` in the
-   Charting Boulder budget-history folder (`BUDGET_CSV`), with the dollar
+4. It draws the budget index chart, of adopted staffing, General Fund
+   spending, and the capital budget, from `budget-history-wide.csv` in the
+   Charting Boulder budget-history folder (`BUDGET_CSV`), with the two dollar
    series deflated to constant 2005 dollars by the Denver–Aurora–Lakewood
    consumer price index, which it downloads from BLS and saves to
    `code/denver-cpi.csv`.
