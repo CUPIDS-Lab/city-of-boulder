@@ -283,55 +283,62 @@
 \begin{frame}{A proposed pipeline}
     \centering
     \providecommand{\nohyphens}{\hyphenpenalty=10000 \exhyphenpenalty=10000 }
+    % Columns, left edge to right edge in cm, with 0.6 cm between them so every arrow keeps a visible line:
+    % sources 0-1.95, capture 2.55-4.5, understand 5.1-7.25, screen 7.85-8.35, store 8.95-11.1, access 11.7-13.75
     \begin{tikzpicture}[
         font=\scriptsize, >=Stealth, line width=0.6pt,
         % No hyphenation inside the boxes: a broken word is harder to read across a room
         every node/.append style={execute at begin node=\nohyphens},
-        p-stage/.style={draw=boulderblue, fill=glacierblue, text=winternight, rounded corners=2pt, align=center, inner sep=3pt, minimum height=0.8cm},
-        p-source/.style={p-stage, fill=white, text width=2.0cm},
-        p-capture/.style={p-stage, text width=2.0cm},
-        p-big/.style={p-stage, fill=boulderblue, text=white, text width=2.2cm},
-        p-out/.style={p-stage, fill=winternight, draw=winternight, text=white, text width=2.05cm},
-        p-check/.style={draw=buffalobronze, fill=boulderstar, text=winternight, rounded corners=2pt, align=center, inner sep=2pt, font=\tiny, text width=2.0cm},
+        p-stage/.style={draw=boulderblue, fill=glacierblue, text=winternight, rounded corners=2pt, align=center, inner sep=2pt, minimum height=0.75cm},
+        p-source/.style={p-stage, fill=white, text width=1.91cm},
+        p-capture/.style={p-stage, text width=1.91cm},
+        p-big/.style={p-stage, fill=boulderblue, text=white, text width=2.11cm},
+        p-out/.style={p-stage, fill=winternight, draw=winternight, text=white, text width=2.01cm},
+        p-check/.style={draw=buffalobronze, fill=boulderstar, text=winternight, rounded corners=2pt, align=center, inner sep=2pt, font=\tiny},
         p-flow/.style={->, draw=boulderblue},
+        p-loop/.style={->, draw=buffalobronze, rounded corners=4pt},
         p-head/.style={font=\scriptsize\bfseries, text=boulderblue, anchor=base},
     ]
         % Column headings
-        \node[p-head] at (1.1, 6.2) {Sources};
-        \node[p-head] at (3.75, 6.2) {Capture};
-        \node[p-head] at (6.45, 6.2) {Understand};
-        \node[p-head] at (8.45, 6.2) {Screen};
-        \node[p-head] at (10.25, 6.2) {Store};
-        \node[p-head] at (12.8, 6.2) {Access};
+        \node[p-head] at (0.975, 5.7) {Sources};
+        \node[p-head] at (3.525, 5.7) {Capture};
+        \node[p-head] at (6.175, 5.7) {Understand};
+        \node[p-head] at (8.1, 5.7) {Screen};
+        \node[p-head] at (10.025, 5.7) {Store};
+        \node[p-head] at (12.725, 5.7) {Access};
 
         % Sources
-        \node[p-source] (pdf) at (1.1, 4.95) {Records portal:\\born-digital PDFs};
-        \node[p-source] (scan) at (1.1, 3.75) {Records portal:\\scanned pages};
-        \node[p-source] (paper) at (1.1, 2.55) {Paper and film};
-        \node[p-source] (av) at (1.1, 1.05) {Meeting audio\\and video};
+        \node[p-source] (pdf) at (0.975, 4.75) {Records portal:\\born-digital PDFs};
+        \node[p-source] (scan) at (0.975, 3.5) {Records portal:\\scanned pages};
+        \node[p-source] (paper) at (0.975, 2.25) {Paper and film};
+        \node[p-source] (av) at (0.975, 0.85) {Meeting audio\\and video};
 
         % Capture
-        \node[p-capture] (layer) at (3.75, 4.95) {Copy the\\text layer};
-        \node[p-capture] (ocr) at (3.75, 3.75) {OCR: read text\\from page images};
-        \node[p-capture] (scanner) at (3.75, 2.55) {Scan to\\page images};
-        \node[p-capture] (stt) at (3.75, 1.05) {Speech to text,\\timestamped};
+        \node[p-capture] (layer) at (3.525, 4.75) {Copy the\\text layer};
+        \node[p-capture] (ocr) at (3.525, 3.5) {OCR: read text\\from page images};
+        \node[p-capture] (scanner) at (3.525, 2.25) {Scan to\\page images};
+        \node[p-capture] (stt) at (3.525, 0.85) {Speech to text,\\timestamped};
 
-        % Document understanding
-        \node[p-big, minimum height=2.95cm] (du) at (6.45, 3.95) {\textbf{Document}\\\textbf{understanding}\\[2pt]layout, tables, fields\\[2pt]$\downarrow$\\[2pt]text, tables, metadata};
+        % Understand: documents, and recordings
+        \node[p-big, minimum height=2.4cm] (du) at (6.175, 4.1) {\textbf{Document}\\\textbf{understanding}\\[2pt]layout, tables, fields\\[1pt]$\downarrow$\\[1pt]text, tables, metadata};
+        \node[p-big, minimum height=0.75cm] (dia) at (6.175, 0.85) {\textbf{Recording}\\\textbf{understanding}\\[1pt]diarization: who spoke when; linked to agenda items};
 
-        % Screen: a gate every record passes before the lake, with an outlet for each reason a record doesn't go straight in
-        \node[draw=buffalobronze, fill=boulderstar, text=winternight, rounded corners=2pt, minimum width=0.62cm, minimum height=4.6cm, inner sep=0pt] (gate) at (8.45, 3.0) {};
-        \node[rotate=90, text=winternight, font=\scriptsize\bfseries] at (8.45, 3.0) {Screen};
-        % Outlet: privacy, withheld from the lake
-        \node[p-check, text width=2.3cm] (kept) at (8.45, 0.1) {\textbf{Privacy:} personal information, victims, juveniles withheld};
+        % Screen: a gate every record passes before the lake, with outlets below it
+        \node[draw=buffalobronze, fill=boulderstar, rounded corners=2pt, minimum width=0.5cm, minimum height=4.6cm, inner sep=0pt] (gate) at (8.1, 2.85) {};
+        \node[rotate=90, text=winternight, font=\scriptsize\bfseries] at (8.1, 2.85) {Screen};
+        \node[p-check, text width=6.6cm, align=left, anchor=north] (kept) at (9.6, 0.0) {%
+            \textbf{Privacy:} personal information, victims, juveniles $\rightarrow$ withheld\\
+            \textbf{CORA exemptions:} attorney-client, deliberative, personnel $\rightarrow$ records custodian\\
+            \textbf{Retention and legal holds} $\rightarrow$ records manager\\
+            \textbf{Duplicates and versions:} reprints, drafts, superseded copies $\rightarrow$ linked to the original};
 
-        % Data lake
-        \node[p-big, minimum height=4.6cm, text width=2.15cm] (lake) at (10.25, 3.0) {\textbf{Data lake}\\[4pt]originals, with checksums\\[4pt]text, tables, transcripts\\[4pt]every value linked to its document and page};
+        % Store
+        \node[p-big, minimum height=4.6cm] (lake) at (10.025, 2.85) {\textbf{Data lake}\\[4pt]originals, with checksums\\[4pt]text, tables, transcripts\\[4pt]every value linked to its document and page};
 
         % Access
-        \node[p-out] (mcp) at (12.8, 4.75) {\textbf{Agent interface}\\(MCP): queries and cited answers};
-        \node[p-check, text width=2.05cm] (sign) at (12.8, 3.55) {Staff check and sign answers before they go out};
-        \node[p-out] (public) at (12.8, 1.55) {\textbf{Public access}\\bulk downloads, open data catalog};
+        \node[p-out] (mcp) at (12.725, 4.6) {\textbf{Agent interface}\\(MCP): queries and cited answers};
+        \node[p-check, text width=1.91cm] (sign) at (12.725, 3.2) {Staff check and sign answers before they go out};
+        \node[p-out] (public) at (12.725, 1.55) {\textbf{Public access}\\bulk downloads, open data catalog};
 
         % Flows
         \draw[p-flow] (pdf) -- (layer);
@@ -341,19 +348,20 @@
         \draw[p-flow] (av) -- (stt);
         \draw[p-flow] (layer.east) -- (layer.east -| du.west);
         \draw[p-flow] (ocr.east) -- (ocr.east -| du.west);
-        \draw[p-flow] (du.east |- 3.95, 3.95) -- (gate.west |- 3.95, 3.95);
-        \draw[p-flow] (stt.east) -- (stt.east -| gate.west);
-        \draw[p-flow, draw=buffalobronze] (gate.south) -- (kept.north);
-        % Outlet: a failed spot check circles back to document understanding
-        \draw[p-flow, draw=buffalobronze, rounded corners=4pt] (gate.north) -- (8.45, 5.72) -- (6.45, 5.72) -- (du.north);
-        \node[font=\tiny, text=buffalobronze, align=center, anchor=south] at (7.45, 5.74) {\textbf{Spot checks:} fails, or totals don't reconcile $\rightarrow$ fix and rerun};
-        \draw[p-flow] (gate.east |- 3.0, 3.0) -- (lake.west |- 3.0, 3.0);
+        \draw[p-flow] (stt) -- (dia);
+        \draw[p-flow] (du.east) -- (du.east -| gate.west);
+        \draw[p-flow] (dia.east) -- (dia.east -| gate.west);
+        \draw[p-flow] (gate.east) -- (gate.east -| lake.west);
         \draw[p-flow] (lake.east |- mcp.west) -- (mcp.west);
         \draw[p-flow] (lake.east |- public.west) -- (public.west);
         \draw[p-flow] (mcp) -- (sign);
+        % Outlets: down to the panel, and the spot-check loop back to document understanding
+        \draw[p-loop] (gate.south) -- (gate.south |- kept.north);
+        \draw[p-loop] (gate.west |- 0, 2.3) -- (6.175, 2.3) -- (du.south);
+        \node[p-check, draw=none, fill=none, text=buffalobronze, text width=1.55cm, anchor=north] at (7.0, 2.25) {\textbf{Spot check fails} $\rightarrow$ fix and rerun};
     \end{tikzpicture}
-
 \end{frame}
+
 
 % -------------------------------------------------------------------------
 % Obligations and values
