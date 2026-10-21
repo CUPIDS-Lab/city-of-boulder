@@ -294,15 +294,15 @@
         p-out/.style={p-stage, fill=winternight, draw=winternight, text=white, text width=2.05cm},
         p-check/.style={draw=buffalobronze, fill=boulderstar, text=winternight, rounded corners=2pt, align=center, inner sep=2pt, font=\tiny, text width=2.0cm},
         p-flow/.style={->, draw=boulderblue},
-        p-head/.style={font=\scriptsize\bfseries, text=boulderblue, anchor=south},
+        p-head/.style={font=\scriptsize\bfseries, text=boulderblue, anchor=base},
     ]
         % Column headings
-        \node[p-head] at (1.1, 5.55) {Sources};
-        \node[p-head] at (3.75, 5.55) {Capture};
-        \node[p-head] at (6.45, 5.55) {Understand};
-        \node[p-head] at (8.45, 5.55) {Screen};
-        \node[p-head] at (10.25, 5.55) {Store};
-        \node[p-head] at (12.8, 5.55) {Access};
+        \node[p-head] at (1.1, 6.2) {Sources};
+        \node[p-head] at (3.75, 6.2) {Capture};
+        \node[p-head] at (6.45, 6.2) {Understand};
+        \node[p-head] at (8.45, 6.2) {Screen};
+        \node[p-head] at (10.25, 6.2) {Store};
+        \node[p-head] at (12.8, 6.2) {Access};
 
         % Sources
         \node[p-source] (pdf) at (1.1, 4.95) {Records portal:\\born-digital PDFs};
@@ -318,12 +318,12 @@
 
         % Document understanding
         \node[p-big, minimum height=2.95cm] (du) at (6.45, 3.95) {\textbf{Document}\\\textbf{understanding}\\[2pt]layout, tables, fields\\[2pt]$\downarrow$\\[2pt]text, tables, metadata};
-        \node[p-check] (duck) at (6.45, 1.95) {People spot-check OCR; totals must reconcile};
 
-        % Privacy screen: a gate every record passes before the lake
+        % Screen: a gate every record passes before the lake, with an outlet for each reason a record doesn't go straight in
         \node[draw=buffalobronze, fill=boulderstar, text=winternight, rounded corners=2pt, minimum width=0.62cm, minimum height=4.6cm, inner sep=0pt] (gate) at (8.45, 3.0) {};
-        \node[rotate=90, text=winternight, font=\scriptsize\bfseries] at (8.45, 3.0) {Privacy screen};
-        \node[p-check, text width=2.3cm] (kept) at (8.45, 0.1) {Kept out: personal information, victims, juveniles};
+        \node[rotate=90, text=winternight, font=\scriptsize\bfseries] at (8.45, 3.0) {Screen};
+        % Outlet: privacy, withheld from the lake
+        \node[p-check, text width=2.3cm] (kept) at (8.45, 0.1) {\textbf{Privacy:} personal information, victims, juveniles withheld};
 
         % Data lake
         \node[p-big, minimum height=4.6cm, text width=2.15cm] (lake) at (10.25, 3.0) {\textbf{Data lake}\\[4pt]originals, with checksums\\[4pt]text, tables, transcripts\\[4pt]every value linked to its document and page};
@@ -344,6 +344,9 @@
         \draw[p-flow] (du.east |- 3.95, 3.95) -- (gate.west |- 3.95, 3.95);
         \draw[p-flow] (stt.east) -- (stt.east -| gate.west);
         \draw[p-flow, draw=buffalobronze] (gate.south) -- (kept.north);
+        % Outlet: a failed spot check circles back to document understanding
+        \draw[p-flow, draw=buffalobronze, rounded corners=4pt] (gate.north) -- (8.45, 5.72) -- (6.45, 5.72) -- (du.north);
+        \node[font=\tiny, text=buffalobronze, align=center, anchor=south] at (7.45, 5.74) {\textbf{Spot checks:} fails, or totals don't reconcile $\rightarrow$ fix and rerun};
         \draw[p-flow] (gate.east |- 3.0, 3.0) -- (lake.west |- 3.0, 3.0);
         \draw[p-flow] (lake.east |- mcp.west) -- (mcp.west);
         \draw[p-flow] (lake.east |- public.west) -- (public.west);
