@@ -9,7 +9,7 @@ recorded.
 | File | Frame | Kind | Made | Source |
 |---|---|---|---|---|
 | `datalab.png` | Document understanding | screenshot | added in Overleaf on 2026-10-20 (commit `818d68a`) | not yet recorded: the page it shows, its URL, and the capture date |
-| `budget-index.png` | Twenty-two years of the city's budget | chart | 2026-10-20, matplotlib, by `code/long-data-analysis.ipynb` | `budget-history-wide.csv` in the Charting Boulder budget-history folder (`brianckeegan/charting-boulder-private`, `2027-XX-budget-history/`, commit `a0e3825`), which transcribes the city's budget books and annual financial reports. Staffing, sales and use tax, property tax, and the capital budget, 2005–2026, each indexed to 2005 = 100 |
+| `budget-index.png` | Twenty-two years of the city's budget | chart | 2026-10-20, matplotlib, by `code/long-data-analysis.ipynb` | `budget-history-wide.csv` in the Charting Boulder budget-history folder (`brianckeegan/charting-boulder-private`, `2027-XX-budget-history/`, commit `a0e3825`), which transcribes the city's budget books and annual financial reports. Staffing, sales and use tax, property tax, and the capital budget, 2005–2026, each indexed to 2005 = 100, with the dollar series in constant 2005 dollars (BLS CPI-U, Denver–Aurora–Lakewood, saved as `code/denver-cpi.csv`) |
 | `revenue.png` | Teaching with the city's records portal | table crop | added in Overleaf on 2026-10-20 (commit `1b32e7c`) | appears to be "Table 1 - Sales and Use Tax" from the city's 2018 year-end revenue report; page and crop still to be recorded |
 | `sales-use-tax.png` | Teaching with the city's records portal | chart (render) | 2026-10-12, matplotlib from pdfplumber readings, by the textbook's `tools/shots/renders/ch-09.py` | `cuinfoscience/Web-Data-Science-Book`, `images/ch-09/sales-use-tax.png`, copied unchanged on 2026-10-20 |
 | `deck-themes-by-quarter.pdf` | Analyzing hotline: questions from council | chart | 2026-10-20, matplotlib, by `code/long-data-analysis.ipynb`, from messages through October 15, 2026 (complete quarters shown) | City of Boulder open data, "Emails to the City Council Hotline" (CC0) |
@@ -45,5 +45,10 @@ recorded.
 - `budget-index.png` is 1920 x 1080 pixels (16:9). Capital starts in 2005, so
   every series is indexed to 2005 rather than 2002. The capital line is the
   adopted capital budget, a plan rather than actual spending.
+  Since 2026-10-21 the three dollar series are deflated to constant 2005
+  dollars by the Denver–Aurora–Lakewood CPI-U: annual averages from BLS's
+  semiannual series (`CUUSS48BSA0`, `S03`), and for 2026, which has no annual
+  average yet, the mean of its bimonthly readings through September
+  (`CUURS48BSA0`). Prices rose about 82% over the period.
 - `sales-use-tax.png` is the textbook's figure, copied unchanged, so it keeps
   the textbook's colors.

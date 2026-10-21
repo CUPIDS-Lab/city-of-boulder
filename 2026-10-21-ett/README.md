@@ -11,7 +11,7 @@ the audience is general: taskforce members, city staff, and residents.
 | `2026-10-21-ett.pdf` | The deck: a title page, 19 numbered frames, and 2 appendix frames |
 | `common/` | The INFO 4617 course's Gotham theme and preamble, copied (see below) |
 | `img/` | The figures and memes the deck shows, and nothing it doesn't; `img/IMAGES.md` says where each came from |
-| `code/` | `long-data-analysis.ipynb`, which makes the hotline and budget charts; the hotline labels it saves; and the Assistant font |
+| `code/` | `long-data-analysis.ipynb`, which makes the hotline and budget charts; the hotline labels and price index it saves; and the Assistant font |
 
 ## Building
 
@@ -87,7 +87,10 @@ data, with a Markdown cell before each step. Run it from `code/`.
 3. It draws the three hotline charts and prints every hotline number the
    slides quote.
 4. It draws the budget index chart from `budget-history-wide.csv` in the
-   Charting Boulder budget-history folder (`BUDGET_CSV`).
+   Charting Boulder budget-history folder (`BUDGET_CSV`), with the dollar
+   series deflated to constant 2005 dollars by the Denver–Aurora–Lakewood
+   consumer price index, which it downloads from BLS and saves to
+   `code/denver-cpi.csv`.
 
 Charts use the City of Boulder's brand colors and Assistant, the brand's
 alternative typeface (`code/fonts/`, SIL Open Font License), on white.
