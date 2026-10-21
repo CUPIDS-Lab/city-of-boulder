@@ -34,6 +34,9 @@ who work here. Each talk or project has its own folder, such as
   (Decided 2026-10-20.)
 - Each image gets a row in its folder's `img/IMAGES.md`: what it is, how it
   was made, and its source.
+- `img/` holds only images the deck uses. When an image leaves the deck,
+  delete the file and its `IMAGES.md` row, and any script that only drew it;
+  git history keeps them. (Decided 2026-10-21.)
 
 ## Branches and pull requests
 

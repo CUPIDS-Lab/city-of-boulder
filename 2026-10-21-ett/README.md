@@ -10,8 +10,8 @@ the audience is general: taskforce members, city staff, and residents.
 | `2026-10-21-ett.tex` | The deck source (Beamer) |
 | `2026-10-21-ett.pdf` | The deck: a title page, 19 numbered frames, and 2 appendix frames |
 | `common/` | The INFO 4617 course's Gotham theme and preamble, copied (see below) |
-| `img/` | The figures and memes the deck shows; `img/IMAGES.md` says where each came from |
-| `code/` | `long-data-analysis.ipynb`, which makes the hotline and budget charts; the hotline labels it saves; the Assistant font; and the script that captions the one new meme |
+| `img/` | The figures and memes the deck shows, and nothing it doesn't; `img/IMAGES.md` says where each came from |
+| `code/` | `long-data-analysis.ipynb`, which makes the hotline and budget charts; the hotline labels it saves; and the Assistant font |
 
 ## Building
 

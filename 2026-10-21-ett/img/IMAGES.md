@@ -20,9 +20,6 @@ recorded.
 | `chart.jpg` | Why I might be wrong | meme | added in Overleaf on 2026-10-20 (commit `1eb238b`) | not yet recorded |
 | `ignoring.jpg` | Other risks | meme | added in Overleaf on 2026-10-20 (commit `1eb238b`) | not yet recorded |
 | `hotline-theme-by-records.pdf` | Appendix: which records each theme depends on | chart | 2026-10-20, matplotlib, by `code/long-data-analysis.ipynb` | as `deck-themes-by-quarter.pdf` |
-| `this-is-fine.jpg` | not used | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-02/img/this-is-fine.jpg` (K. C. Green's "This is fine") |
-| `ben-parker.jpg` | not used | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-02/img/ben-parker.jpg` (Uncle Ben, *Spider-Man*, 2002) |
-| `archives-are-incomplete.jpg` | not used | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-07/img/archives-are-incomplete.jpg` (*Star Wars: Episode II*, "Perhaps the archives are incomplete") |
 
 ## Notes
 
