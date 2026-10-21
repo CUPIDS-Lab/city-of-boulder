@@ -1,22 +1,25 @@
 # Images
 
-Where each image in the deck came from. None is a screenshot: three are charts
-drawn from the city's open data, one is a chart from the textbook, and four are
-memes for the outlook and risk frames.
+Where each image in the deck came from, by the title of the frame that shows
+it. Frames are named rather than numbered, because numbers shift as frames are
+added. Four images are charts drawn from data; the rest are a screenshot, a
+table crop, and memes added in Overleaf, whose sources are still to be
+recorded.
 
 | File | Frame | Kind | Made | Source |
 |---|---|---|---|---|
+| `datalab.png` | Document understanding | screenshot | added in Overleaf on 2026-10-20 (commit `818d68a`) | not yet recorded: the page it shows, its URL, and the capture date |
+| `budget-index.png` | Twenty-two years of the city's budget | chart | 2026-10-20, matplotlib, by `code/long-data-analysis.ipynb` | `budget-history-wide.csv` in the Charting Boulder budget-history folder (`brianckeegan/charting-boulder-private`, `2027-XX-budget-history/`, commit `a0e3825`), which transcribes the city's budget books and annual financial reports. Staffing, sales and use tax, property tax, and the capital budget, 2005–2026, each indexed to 2005 = 100 |
+| `revenue.png` | Teaching with the city's records portal | table crop | added in Overleaf on 2026-10-20 (commit `1b32e7c`) | appears to be "Table 1 - Sales and Use Tax" from the city's 2018 year-end revenue report; page and crop still to be recorded |
+| `sales-use-tax.png` | Teaching with the city's records portal | chart (render) | 2026-10-12, matplotlib from pdfplumber readings, by the textbook's `tools/shots/renders/ch-09.py` | `cuinfoscience/Web-Data-Science-Book`, `images/ch-09/sales-use-tax.png`, copied unchanged on 2026-10-20 |
 | `deck-themes-by-quarter.pdf` | Analyzing hotline: questions from council | chart | 2026-10-20, matplotlib, by `code/long-data-analysis.ipynb`, from messages through October 15, 2026 (complete quarters shown) | City of Boulder open data, "Emails to the City Council Hotline" (CC0) |
 | `deck-records-needed.pdf` | Analyzing hotline: answers from staff | chart | as above | as above |
-| `hotline-theme-by-records.pdf` | Appendix: which records each theme depends on | chart | as above | as above |
-| `sales-use-tax.png` | 9 Eight years of sales and use tax | chart (render) | 2026-10-12, matplotlib from pdfplumber readings, by the textbook's `tools/shots/renders/ch-09.py` | `cuinfoscience/Web-Data-Science-Book`, `images/ch-09/sales-use-tax.png`, copied unchanged on 2026-10-20 |
-| `drake-hotline.png` | 17 What happens next | meme | 2026-10-20, captioned by `code/make_memes.py` | imgflip template "Drake Hotline Bling" (181913649), https://i.imgflip.com/30b1gx.jpg |
-| `this-is-fine.jpg` | 18 Why I might be wrong | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-02/img/this-is-fine.jpg` (K. C. Green's "This is fine"), the instructor's pick |
-| `ben-parker.jpg` | 19 Some records shouldn't become data | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-02/img/ben-parker.jpg` (Uncle Ben, *Spider-Man*, 2002), the instructor's pick |
-| `archives-are-incomplete.jpg` | 20 Who bears the cost | meme | copied unchanged on 2026-10-20 | `cuinfoscience/INFO4617-Fall2026`, `slides/week-07/img/archives-are-incomplete.jpg` (*Star Wars: Episode II*, "Perhaps the archives are incomplete"), the instructor's pick |
-| `datalab.png` | 3 Document understanding | not yet recorded | added in Overleaf on 2026-10-20 (commit `818d68a`) | not yet recorded: the page it shows, its URL, and the capture date |
-| `budget-index.png` | Twenty-two years of the city's budget | chart | 2026-10-20, matplotlib, by `code/long-data-analysis.ipynb` | `budget-history-wide.csv` in the Charting Boulder budget-history folder (`brianckeegan/charting-boulder-private`, `2027-XX-budget-history/`, commit `a0e3825`), which transcribes the city's budget books and annual financial reports. Staffing, sales and use tax, property tax, and the capital budget, 2005–2026, each indexed to 2005 = 100 |
 | `responsive.jpg` | Accessibility and CORA/FOIA | meme | added in Overleaf on 2026-10-20 (commit `5b6e796`) | not yet recorded: the template and where it came from |
+| `iceberg.jpg` | Community values | meme | added in Overleaf on 2026-10-20 (commit `8ba9e26`) | not yet recorded |
+| `georgi.jpg` | What happens next | meme | added in Overleaf on 2026-10-20 (commit `1eb238b`) | not yet recorded |
+| `chart.jpg` | Why I might be wrong | meme | added in Overleaf on 2026-10-20 (commit `1eb238b`) | not yet recorded |
+| `ignoring.jpg` | Other risks | meme | added in Overleaf on 2026-10-20 (commit `1eb238b`) | not yet recorded |
+| `hotline-theme-by-records.pdf` | Appendix: which records each theme depends on | chart | 2026-10-20, matplotlib, by `code/long-data-analysis.ipynb` | as `deck-themes-by-quarter.pdf` |
 
 ## Notes
 
@@ -30,8 +33,6 @@ memes for the outlook and risk frames.
   checksum. To refresh the chart, retake it in the textbook and copy it here
   again. The textbook's `tools/shots/run sync` writes to the course repository,
   so this copy was made by hand.
-- The program output on frames 7 and 8 is set as text, not as an image. It is
-  what chapter 9's code prints, copied from `ch-09-pdfs.qmd`.
 - Every chart from data is drawn by `code/long-data-analysis.ipynb` on a white
   background, in the City of Boulder's brand colors ("City Colors",
   bouldercolorado.gov/brand) and Assistant, the brand's alternative typeface.

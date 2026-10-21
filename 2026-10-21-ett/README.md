@@ -8,11 +8,10 @@ the audience is general: taskforce members, city staff, and residents.
 | File | What it is |
 |---|---|
 | `2026-10-21-ett.tex` | The deck source (Beamer) |
-| `2026-10-21-ett.pdf` | The deck: 21 numbered frames and 4 appendix frames |
-| `2026-10-21-ett-notes.pdf` | The same deck with a page of speaker notes after each frame |
+| `2026-10-21-ett.pdf` | The deck: a title page, 19 numbered frames, and 2 appendix frames |
 | `common/` | The INFO 4617 course's Gotham theme and preamble, copied (see below) |
-| `img/` | The figures and memes the deck shows; `img/IMAGES.md` says where each came from |
-| `code/` | `long-data-analysis.ipynb`, which makes the hotline and budget charts; the hotline labels it saves; the Assistant font; and the script that captions the one new meme |
+| `img/` | The figures and memes the deck shows, and nothing it doesn't; `img/IMAGES.md` says where each came from |
+| `code/` | `long-data-analysis.ipynb`, which makes the hotline and budget charts; the hotline labels it saves; and the Assistant font |
 
 ## Building
 
@@ -21,7 +20,6 @@ From this folder, with TeX Live (the packages the course's CI installs:
 
 ```bash
 latexmk -pdf 2026-10-21-ett.tex
-latexmk -pdf -jobname=2026-10-21-ett-notes -usepretex='\def\shownotes{}' 2026-10-21-ett.tex
 ```
 
 The build needs no biber: sources are cited in each frame's bottom line.
@@ -31,55 +29,48 @@ The build needs no biber: sources are cited in each frame's bottom line.
 The deck uses the INFO 4617 theme and preamble
 ([`cuinfoscience/INFO4617-Fall2026`](https://github.com/cuinfoscience/INFO4617-Fall2026),
 `slides/common/`), copied into `common/` without biblatex and the `\cupids`
-logo macro. Three rules of its own:
+logo macro. Its own rules (the repository's `AGENTS.md` has the reasons):
 
 - No section dividers.
 - No `block` environments. A frame defaults to plain text and carries at most
   one `alertblock`; most carry none.
 - The outlook and risk frames put the argument in a left column and a meme in
   the right.
+- No speaker notes, and no notes PDF.
+- Figures use a white or transparent background, and charts and diagrams use
+  the City of Boulder's brand colors.
 
 ## The story
 
-The council hotline opens the talk with a question (could the city's own
-records answer council's questions, and could a machine find them?), and the
-rest of the deck answers it:
-
-1. **Terms.** Long data; document understanding, defined and scoped; data
-   liberation, defined, with precedents and possible uses for the city.
-2. **What we know today.** Two liberation sprints, then *Web Data Science*
-   chapter 9's revenue-report case study: the records portal's folder
-   listing, one report's totals row and its check, and the 2017–2024 chart.
-   Nothing new was requested from the city's server for this talk.
-3. **The hotline case study.** The data and method (moved from the appendix),
-   what council asks about, what the answers needed, and what to liberate
-   first.
-4. **Obligations.** Accessibility law, the Colorado Open Records Act, and the
+1. **Terms** (frames 1–4). Long data; document understanding; data
+   liberation and rescue, with precedents; and uses for the city.
+2. **What we know today** (5–7). Two liberation sprints, the budget index, and
+   *Web Data Science* chapter 9's lesson on the city's revenue reports.
+3. **The council hotline** (8–11). What council asks, what staff answers
+   need, and what to liberate first.
+4. **A proposed pipeline** (12). Sources, capture, document understanding, a
+   privacy screen, a data lake, and access for agents (MCP) and the public,
+   with the points where people check the work. It names no products.
+5. **Obligations and values** (13–14). Accessibility law and CORA, and the
    city's Sustainability, Equity and Resilience Framework.
-5. **Outlook and risks.** What happens next, why I might be wrong, records
-   that shouldn't become data, and who bears the cost. The hotline returns in
-   each.
-
-The deck calls the city's document system "the city's records portal" and
-never names its software, as the taskforce asked. The appendix code leaves the
-portal's addresses to chapter 9. The source URLs in `img/IMAGES.md` are the
-city's own addresses and appear only there.
+6. **Outlook and risks** (15–19). What happens next, why I might be wrong,
+   other risks, key takeaways.
 
 ## Where each taskforce prompt is answered
 
-Each frame's speaker note starts with the prompt it answers. Frame numbers are
-the ones in each slide's footer; the title page is not counted.
+Frame numbers are the ones in each slide's footer; the title page is not
+counted.
 
 | Taskforce prompt | Frames |
 |---|---|
-| Overview of the topic, technology, or trend | 1 The council hotline; 2 Long data; 3 Document understanding |
-| What do we know today? | 2 Long data; 6 Two liberation sprints; 7–9 the revenue-report demo; 10 The hotline data |
-| What do we think will happen? Why might we be wrong? | 17 What happens next; 18 Why I might be wrong |
-| Relevant examples, kept general | 4 Data liberation |
-| Potential implications for the city | 5 What liberation could do for the city; 11 What council asks about; 12 What the answers needed; 13 What to liberate first |
-| Key opportunities and risks in adoption | 5; 13; 14 Accessibility; 15 The Colorado Open Records Act; 16 Community values; 19 Some records shouldn't become data |
-| Would impacts be disproportionately felt in our community? | 20 Who bears the cost |
-| What would the city need to do to mitigate impacts? | 16 Community values; 19; 20; 21 Key takeaways |
+| Overview of the topic, technology, or trend | 1 Long data; 2 Document understanding; 3 Data liberation and rescue |
+| What do we know today? | 5 Two data liberation sprints; 6 Twenty-two years of the city's budget; 7 Teaching with city's records portal; 8–10 the hotline |
+| What do we think will happen? Why might we be wrong? | 15 What happens next; 16 Why I might be wrong |
+| Relevant examples, kept general | 3 Data liberation and rescue |
+| Potential implications for the city | 4 Data liberation for the City of Boulder; 9–10 the hotline analysis; 11 What to liberate first |
+| Key opportunities and risks in adoption | 12 A proposed pipeline; 13 Accessibility and CORA/FOIA; 14 Community values; 17 Other risks |
+| Would impacts be disproportionately felt in our community? | 17 Other risks |
+| What would the city need to do to mitigate impacts? | 12 A proposed pipeline; 14 Community values; 18 Key takeaways |
 
 ## The analysis notebook
 
