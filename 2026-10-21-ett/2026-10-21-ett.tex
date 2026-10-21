@@ -5,9 +5,6 @@
 \input{preamble}
 \usepackage{array}  % for the appendix table's p{} columns
 
-% Speaker notes: the notes build defines \shownotes (see README.md)
-\ifdefined\shownotes\setbeameroption{show notes}\fi
-
 \title[Long Data]{{\Huge Long Data}}
 \subtitle{Improving access to and use of the city's archival records}
 \author[Keegan]{\textbf{Brian C. Keegan, Ph.D.} \\ Associate Professor, Department of Information Science \\ University of Colorado Boulder}
@@ -281,7 +278,78 @@
         \end{column}
     \end{columns}
 
-    \note{Taskforce prompts: implications for the city; key opportunities. Appointments are small and cheap, and they tell you who served on what, and when, which links every other record to a person's role. The appendix has the detail.}
+\end{frame}
+
+\begin{frame}{A proposed pipeline}
+    \centering
+    \providecommand{\nohyphens}{\hyphenpenalty=10000 \exhyphenpenalty=10000 }
+    \begin{tikzpicture}[
+        font=\scriptsize, >=Stealth, line width=0.6pt,
+        % No hyphenation inside the boxes: a broken word is harder to read across a room
+        every node/.append style={execute at begin node=\nohyphens},
+        p-stage/.style={draw=boulderblue, fill=glacierblue, text=winternight, rounded corners=2pt, align=center, inner sep=3pt, minimum height=0.8cm},
+        p-source/.style={p-stage, fill=white, text width=2.0cm},
+        p-capture/.style={p-stage, text width=2.0cm},
+        p-big/.style={p-stage, fill=boulderblue, text=white, text width=2.2cm},
+        p-out/.style={p-stage, fill=winternight, draw=winternight, text=white, text width=2.05cm},
+        p-check/.style={draw=buffalobronze, fill=boulderstar, text=winternight, rounded corners=2pt, align=center, inner sep=2pt, font=\tiny, text width=2.0cm},
+        p-flow/.style={->, draw=boulderblue},
+        p-head/.style={font=\scriptsize\bfseries, text=boulderblue, anchor=south},
+    ]
+        % Column headings
+        \node[p-head] at (1.1, 5.55) {Sources};
+        \node[p-head] at (3.75, 5.55) {Capture};
+        \node[p-head] at (6.45, 5.55) {Understand};
+        \node[p-head] at (8.45, 5.55) {Screen};
+        \node[p-head] at (10.25, 5.55) {Store};
+        \node[p-head] at (12.8, 5.55) {Access};
+
+        % Sources
+        \node[p-source] (pdf) at (1.1, 4.95) {Records portal:\\born-digital PDFs};
+        \node[p-source] (scan) at (1.1, 3.75) {Records portal:\\scanned pages};
+        \node[p-source] (paper) at (1.1, 2.55) {Paper and film};
+        \node[p-source] (av) at (1.1, 1.05) {Meeting audio\\and video};
+
+        % Capture
+        \node[p-capture] (layer) at (3.75, 4.95) {Copy the\\text layer};
+        \node[p-capture] (ocr) at (3.75, 3.75) {OCR: read text\\from page images};
+        \node[p-capture] (scanner) at (3.75, 2.55) {Scan to\\page images};
+        \node[p-capture] (stt) at (3.75, 1.05) {Speech to text,\\timestamped};
+
+        % Document understanding
+        \node[p-big, minimum height=2.95cm] (du) at (6.45, 3.95) {\textbf{Document}\\\textbf{understanding}\\[2pt]layout, tables, fields\\[2pt]$\downarrow$\\[2pt]text, tables, metadata};
+        \node[p-check] (duck) at (6.45, 1.95) {People spot-check OCR; totals must reconcile};
+
+        % Privacy screen: a gate every record passes before the lake
+        \node[draw=buffalobronze, fill=boulderstar, text=winternight, rounded corners=2pt, minimum width=0.62cm, minimum height=4.6cm, inner sep=0pt] (gate) at (8.45, 3.0) {};
+        \node[rotate=90, text=winternight, font=\scriptsize\bfseries] at (8.45, 3.0) {Privacy screen};
+        \node[p-check, text width=2.3cm] (kept) at (8.45, 0.1) {Kept out: personal information, victims, juveniles};
+
+        % Data lake
+        \node[p-big, minimum height=4.6cm, text width=2.15cm] (lake) at (10.25, 3.0) {\textbf{Data lake}\\[4pt]originals, with checksums\\[4pt]text, tables, transcripts\\[4pt]every value linked to its document and page};
+
+        % Access
+        \node[p-out] (mcp) at (12.8, 4.75) {\textbf{Agent interface}\\(MCP): queries and cited answers};
+        \node[p-check, text width=2.05cm] (sign) at (12.8, 3.55) {Staff check and sign answers before they go out};
+        \node[p-out] (public) at (12.8, 1.55) {\textbf{Public access}\\bulk downloads, open data catalog};
+
+        % Flows
+        \draw[p-flow] (pdf) -- (layer);
+        \draw[p-flow] (scan) -- (ocr);
+        \draw[p-flow] (paper) -- (scanner);
+        \draw[p-flow] (scanner) -- (ocr);
+        \draw[p-flow] (av) -- (stt);
+        \draw[p-flow] (layer.east) -- (layer.east -| du.west);
+        \draw[p-flow] (ocr.east) -- (ocr.east -| du.west);
+        \draw[p-flow] (du.east |- 3.95, 3.95) -- (gate.west |- 3.95, 3.95);
+        \draw[p-flow] (stt.east) -- (stt.east -| gate.west);
+        \draw[p-flow, draw=buffalobronze] (gate.south) -- (kept.north);
+        \draw[p-flow] (gate.east |- 3.0, 3.0) -- (lake.west |- 3.0, 3.0);
+        \draw[p-flow] (lake.east |- mcp.west) -- (mcp.west);
+        \draw[p-flow] (lake.east |- public.west) -- (public.west);
+        \draw[p-flow] (mcp) -- (sign);
+    \end{tikzpicture}
+
 \end{frame}
 
 % -------------------------------------------------------------------------
@@ -374,7 +442,6 @@
         \end{column}
     \end{columns}
 
-    \note{Taskforce prompt: what do we think will happen. The meme is the whole recommendation in two panels.}
 \end{frame}
 
 \begin{frame}{Why I might be wrong}
@@ -396,7 +463,6 @@
         \end{column}
     \end{columns}
 
-    \note{Taskforce prompt: why might we be wrong. Say the demand point flatly: it is the strongest objection to my own recommendation, and the room should hear me make it first. The last point is the most likely failure, and it isn't technical.}
 \end{frame}
 
 \begin{frame}{Other risks}
@@ -478,7 +544,6 @@
         \bottomrule
     \end{tabular}
 
-    \note{Each ``unknown'' is a line on the inventory.}
 \end{frame}
 
 \begin{frame}[noframenumbering]{Appendix: which records each theme depends on}
