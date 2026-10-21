@@ -15,7 +15,7 @@
 \maketitle
 
 \begin{frame}{Long data}
-    \textit{Big data} means many records but typically over a short span
+    \textit{Big data} means many records, typically over a short span
 
     \medskip
 
@@ -23,11 +23,11 @@
 
     \medskip
 
-    Long data can illustrate trends, establish precedents, enable comparisons, and uncover context 
+    Long data can illustrate trends, establish precedents, enable comparisons, and uncover context
 
     \medskip
 
-    Long data also poses challenges around accessibility, standards, comparability
+    Long data also poses challenges around accessibility, standards, and comparability
             
     \begin{center}
         \begin{tabular}{lll}
@@ -51,7 +51,7 @@
 \begin{frame}{Document understanding}
     \begin{columns}
         \begin{column}{.65\textwidth}
-            \textit{Document understanding} is a research field and software frameworks that turn documents into data
+            \textit{Document understanding} is a research field, and a set of software frameworks, that turns documents into data
 
             \medskip
             
@@ -64,28 +64,30 @@
 
             \medskip
             
-            Contemporary AI models have rapidly improving ability to convert complex PDFs into more accessible text, markdown, HTML formats
+            AI models are rapidly improving at converting complex PDFs into accessible formats: text, Markdown, and HTML
         \end{column}
         \begin{column}{.3\textwidth}\centering
-            \includegraphics[width=\textwidth]{2026-10-21-ett/img/datalab.png}
+            \includegraphics[width=\textwidth]{img/datalab.png}
             {\footnotesize From \url{https://www.datalab.to}}
         \end{column}
     \end{columns}
 
-    \bottomcite{Yihao Ding, \textit{et al}. 2026. A Survey on MLLM-based Visually Rich Document Understanding: Methods, Challenges, and Emerging Trends. In \textit{ACL 2026}, pp. 13319–13340.}
+    \bottomcite{Yihao Ding et al., ``A Survey on MLLM-based Visually Rich Document Understanding: Methods, Challenges, and Emerging Trends,'' \textit{ACL 2026}, pp.~13319--13340}
 \end{frame}
 
 \begin{frame}{Data liberation and rescue}
     \textit{Data liberation} moves information that is already public out of the formats that bury it (scans, PDFs, portals) and into open and accessible data formats
 
-    \textit{Data rescue} is a grassroots interdisciplinary movement to preserve public datasets from decay and censorship
+    \medskip
+
+    \textit{Data rescue} is a grassroots, interdisciplinary movement to preserve public datasets from decay and censorship
 
     \medskip
 
     \begin{itemize}\setlength\itemsep{3pt}
         \item \textbf{2014.} The Sunlight Foundation runs a PDF Liberation Hackathon to build shared tools for pulling tables out of government PDFs
         \item \textbf{2017 on.} The Public Utility Data Liberation project turns federal energy filings into an open and documented database
-        \item \textbf{2020.} SCOTUS rules in \textit{Georgia v. Public.Resource.Org} that the state's annotated code cannot be copyrighted
+        \item \textbf{2020.} The U.S. Supreme Court rules in \textit{Georgia v. Public.Resource.Org} that the state's annotated code cannot be copyrighted
         \item \textbf{2025 on.} Researchers improvise technical capacity to archive data before it is deleted by the Trump administration
     \end{itemize}
 
@@ -94,12 +96,12 @@
 
 \begin{frame}{Data liberation for the City of Boulder}
     \begin{itemize}\setlength\itemsep{4pt}
-        \item \textbf{Hotline answers.} Aiding staff in research to answer questions from council and other departments
+        \item \textbf{Hotline answers.} Helping staff research answers to questions from council and other departments
         \item \textbf{Budget history.} Converting PDF tables into accessible data formats
         \item \textbf{The law on a date.} Which version of an ordinance was in force when a permit was issued
         \item \textbf{Records requests.} A document made searchable once is ready for every later request
         \item \textbf{Accessibility.} Every scanned page gains text that a screen reader can speak
-        \item \textbf{Research and reporting.} Residents, reporters, and the researchers work from the same corpus as staff
+        \item \textbf{Research and reporting.} Residents, reporters, and researchers work from the same corpus as staff
     \end{itemize}
 \end{frame}
 
@@ -108,7 +110,7 @@
 % -------------------------------------------------------------------------
 
 \begin{frame}{Two data liberation sprints}
-    I have already piloted several data liberation sprints using local government archives
+    I have already piloted two data liberation sprints using local government archives
 
     \bigskip
 
@@ -116,15 +118,17 @@
         \begin{column}{0.47\textwidth} 
             \textbf{City budget books, 2002--2027}\par\vspace{-5pt}\rule{\linewidth}{0.1em}
 
+            \smallskip
+
             \href{https://documents.bouldercolorado.gov/WebLink/Browse.aspx?id=187445&dbid=0&repo=LF8PROD2&cr=1}{City budgets}
             
             \smallskip
             
-            34 PDFs and 10,843 pages from city records. 
+            34 PDFs and 10,843 pages from city records
 
             \smallskip
             
-            6 volumes needed to be OCR'd
+            Six volumes needed OCR
 
             \smallskip
 
@@ -147,28 +151,28 @@
 
             \smallskip
 
-            1,269 values extracted and audited for BVSD and SVVSD
+            1,269 values extracted and audited for the Boulder Valley and St.~Vrain Valley school districts
         \end{column}
     \end{columns}
 
     \bigskip
 
-    Agent pipelines to identify page ranges, orchestrate OCR, extract tables, audit margins, record gaps, compare across volumes
+    Agent pipelines identify page ranges, orchestrate OCR, extract tables, audit margins, record gaps, and compare across volumes
 \end{frame}
 
 \begin{frame}{Twenty-two years of the city's budget}
     \centering
     \includegraphics[width=0.72\textwidth]{img/budget-index.png}
 
-    \bottomcite{Indexed to 2005 = 100. Taxes: audited collections through 2025, 2026 adopted (dashed). Capital: adopted capital budget. Staff: adopted FTE. Nominal dollars. City of Boulder budget books and annual financial reports, via budget-history dataset}
+    \bottomcite{Indexed to 2005 = 100. Taxes: audited collections through 2025, 2026 adopted (dashed). Capital: adopted capital budget. Staff: adopted FTE. Nominal dollars. City of Boulder budget books and annual financial reports, via the budget-history dataset}
 \end{frame}
 
-\begin{frame}[fragile]{Teaching with city's records portal}
-    Week 09 of my Web Data Science course uses Finance Department's year-end revenue reports: \url{https://cuinfoscience.github.io/Web-Data-Science-Book/ch-09-pdfs.html}
+\begin{frame}[fragile]{Teaching with the city's records portal}
+    Week 9 of my Web Data Science course uses the Finance Department's year-end revenue reports: \url{https://cuinfoscience.github.io/Web-Data-Science-Book/ch-09-pdfs.html}
 
     \bigskip
 
-    Access city's Laserfiche archives, download report PDFs, find and extract tables, check arithmetic against reported margins and prior years
+    Students access the city's Laserfiche archive, download report PDFs, find and extract tables, and check the arithmetic against reported margins and prior years
 
     \begin{center}
         \includegraphics[width=.475\textwidth]{img/revenue.png}
@@ -182,7 +186,7 @@
 % -------------------------------------------------------------------------
 
 \begin{frame}{Council hotline}
-    Council members and staff exchange questions and answers via council hotline
+    Council members and staff exchange questions and answers via the council hotline
 
     \medskip
 
@@ -190,7 +194,7 @@
 
     \medskip
 
-    Many of those answers point to budgets, presentations, ordinance, and reports already in the city's archives
+    Many of those answers point to budgets, presentations, ordinances, and reports already in the city's archives
 
     \bigskip
 
@@ -202,10 +206,7 @@
 \end{frame}
 
 \begin{frame}{Analyzing hotline: questions from council}
-    \medskip
-
-    Classify each message's subject and body based on keywords into nine policy themes
-
+    Classify each message's subject and body by keywords into nine policy themes
 
     \begin{center}
         \includegraphics[width=.85\textwidth]{img/deck-themes-by-quarter.pdf}
@@ -217,7 +218,7 @@
 \begin{frame}{Analyzing hotline: answers from staff}
     \begin{columns}
         \begin{column}{0.55\textwidth}
-            Classify each staff answer's subject and body based on keywords into eight kinds of records it draws on
+            Classify each staff answer's subject and body by keywords into eight kinds of records it draws on
 
             \medskip
 
@@ -236,12 +237,12 @@
     \end{columns}
 
     \begin{alertblock}{It goes without saying}
-        Building an agent interface into a document understanding pipeline should never attempt to replace staff expertise, experience, and oversight
+        An agent interface built on a document understanding pipeline should never replace staff expertise, experience, and oversight
     \end{alertblock}
 \end{frame}
 
 \begin{frame}{What to liberate first}
-    How often council needs the record? How far back it runs? How much personal information?
+    How often does council need the record? How far back does it run? How much personal information does it hold?
 
     \bigskip
 
@@ -263,7 +264,7 @@
 
             \begin{itemize}\small
                 \item Minutes and recordings
-                \item Board and commissions
+                \item Boards and commissions
                 \item Program year-end reports
             \end{itemize}
         \end{column}
@@ -370,15 +371,15 @@
 \begin{frame}{Accessibility and CORA/FOIA}
     \begin{columns}
         \begin{column}{.65\textwidth}
-            ADA requires the city's web content, including PDFs, to meet WCAG 2.1 in 2027
+            The ADA requires the city's web content, including PDFs, to meet accessibility guidelines (WCAG 2.1) by April 2027
 
             \medskip
             
-            Scanned documents without text layers and figures without alt-text are endemic throughout municipal archives
+            Scanned documents without text layers and figures without alt text are endemic throughout municipal archives
         
             \medskip
         
-            Documents needed for service must be readable while archived scans are exempt
+            Documents needed to get a service must be readable; archived scans are exempt
         
             \medskip
         
@@ -388,25 +389,24 @@
             \includegraphics[width=.95\textwidth]{img/responsive.jpg}
         \end{column}
     \end{columns}
-    \bottomcite{28 C.F.R. \S\S 35.200--35.201, as amended by 91 Fed.\ Reg.\ 20902 (April 20, 2026); C.R.S. \S 24-34-802 (HB21-1110, HB24-1454)}
-
+    \bottomcite{28 C.F.R. \S\S 35.200--35.201, as amended by 91 Fed.\ Reg.\ 20902 (April 20, 2026); C.R.S. \S 24-34-802 (HB21-1110, HB24-1454); CORA, C.R.S. \S 24-72-201 et seq.}
 \end{frame}
 
 \begin{frame}{Community values}\small
     \begin{columns}
         \begin{column}{.65\textwidth}
-            The city's Sustainability, Equity and Resilience Framework commits the city to a government that:
+            The city's Sustainability, Equity and Resilience (SER) Framework commits the city to a government that:
 
         \begin{itemize}
             \item ``Models stewardship, resilience, and sustainability of the city's financial, human, \textbf{information}, and physical assets''
             \item ``Supports strategic decision-making with \ldots{} timely and reliable data and analysis''
-            \item ``Enhances and facilitates \textbf{transparency}, accuracy, efficiency, effectiveness... in all city business''
+            \item ``Enhances and facilitates \textbf{transparency}, accuracy, efficiency, effectiveness \ldots{} in all city business''
             \item ``Disaggregates data by race and ethnicity to ensure programs, policies, and financial decisions do not have a disparate impact on historically excluded community members''
         \end{itemize}
     
         \medskip
     
-        Uneven digitization and accessibility limits ability for electeds, staff, researchers, journalists, \textit{etc}. to study disparate impacts
+        Uneven digitization and accessibility limit the ability of elected officials, staff, researchers, and journalists to study disparate impacts
         \end{column}
         \begin{column}{.3\textwidth}
             \includegraphics[width=\textwidth]{img/iceberg.jpg}
@@ -414,7 +414,7 @@
     \end{columns}
     
 
-    \bottomcite{City of Boulder, ``\href{https://www.bouldercolorado.gov/sustainability-equity-and-resilience-framework}{Sustainability, Equity and Resilience Framework}.''}
+    \bottomcite{City of Boulder, ``\href{https://www.bouldercolorado.gov/sustainability-equity-and-resilience-framework}{Sustainability, Equity and Resilience Framework}''}
 \end{frame}
 
 % -------------------------------------------------------------------------
@@ -428,11 +428,11 @@
 
             \medskip
 
-            Identify commonly-requested materials from council and public 
+            Identify materials commonly requested by council and the public
 
             \medskip
             
-            Convert and document into more accessible formats via existing Open Data team and infrastructure
+            Convert and document them in accessible formats through the existing Open Data team and infrastructure
 
             \medskip
 
@@ -445,7 +445,6 @@
             \medskip
 
             Implement SER Framework values through open standards and products, not expensive and fragile vendor solutions
-            
         \end{column}
         \begin{column}{0.4\textwidth}
             \centering
@@ -466,7 +465,7 @@
 
             \medskip
 
-            Early mover risks with dramatic changes in architectures, standards, and practices for AI, agents, MCPs, data lakes, \textit{etc}.
+            Early mover risks with dramatic changes in architectures, standards, and practices for AI, agents, MCP servers, and data lakes
         \end{column}
         \begin{column}{0.4\textwidth}
             \centering
@@ -483,7 +482,7 @@
 
             \medskip
 
-            Surveillance video, customer records, code complaints, records about victims and juveniles are some kinds of archived documents that should \textit{not} become data
+            Surveillance video, customer records, code complaints, and records about victims and juveniles should \textit{not} become data
 
             \medskip
 
@@ -495,8 +494,7 @@
 
             \medskip
 
-            Use SER framework to guide digitization priorities
-            
+            Use the SER Framework to guide digitization priorities
         \end{column}
         \begin{column}{0.4\textwidth}
             \centering
@@ -508,15 +506,15 @@
 \begin{frame}{Key takeaways}
     \begin{enumerate}\setlength\itemsep{4pt}
         \item The city holds \textbf{long data} of immense value locked away in PDFs and paper
-        \item Digitizing is getting better and cheaper while costs of \textbf{finding and checking} them remains constant-ish
-        \item The \textbf{hotline} archive shows a third of substantive answers were lookups that could have required less staff time
+        \item Digitizing is getting better and cheaper, while the cost of \textbf{finding and checking} records stays roughly constant
+        \item The \textbf{hotline} archive shows a third of substantive answers were lookups that could take less staff time
         \item \textbf{Accessibility law, CORA, and the city's own framework} already call for this work
     \end{enumerate}
 
 \end{frame}
 
 \begin{frame}{Thank you}
-    Source and support code for this deck are available here: \url{https://github.com/CUPIDS-Lab/city-of-boulder/tree/main/2026-10-21-ett}
+    Source code and data for this deck: \url{https://github.com/CUPIDS-Lab/city-of-boulder/tree/main/2026-10-21-ett}
 
     \medskip
 
