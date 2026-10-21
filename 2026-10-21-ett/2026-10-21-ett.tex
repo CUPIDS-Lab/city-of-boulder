@@ -512,14 +512,14 @@
         % Screen: a gate every record passes before the lake, with outlets below it
         \node[draw=buffalobronze, fill=boulderstar, rounded corners=2pt, minimum width=0.5cm, minimum height=4.6cm, inner sep=0pt] (gate) at (8.1, 2.85) {};
         \node[rotate=90, text=winternight, font=\scriptsize\bfseries] at (8.1, 2.85) {Screen};
-        \node[p-check, text width=6.6cm, align=left, anchor=north] (kept) at (9.6, 0.0) {%
-            \textbf{Privacy:} personal information, victims, juveniles $\rightarrow$ withheld\\
-            \textbf{CORA exemptions:} attorney-client, deliberative, personnel $\rightarrow$ records custodian\\
-            \textbf{Retention and legal holds} $\rightarrow$ records manager\\
-            \textbf{Duplicates and versions:} reprints, drafts, superseded copies $\rightarrow$ linked to the original};
+        \node[p-check, text width=5cm, align=left, anchor=north] (kept) at (10.25, 0.0) {%
+            \textbf{Privacy:} PII, victims, juveniles\\
+            \textbf{CORA exemptions:} attorney-client, deliberative, personnel\\
+            \textbf{Duplicates and versions:} reprints, drafts, superseded copies
+            };
 
         % Store
-        \node[p-big, minimum height=4.6cm] (lake) at (10.025, 2.85) {\textbf{Data lake}\\[4pt]originals, with checksums\\[4pt]text, tables, transcripts\\[4pt]every value linked to its document and page};
+        \node[p-big, minimum height=4.6cm] (lake) at (10.025, 2.85) {\textbf{Data lake}\\[4pt]originals, with checksums\\[4pt]text, tables, transcripts};
 
         % Access
         \node[p-out] (mcp) at (12.725, 4.6) {\textbf{Agent interface}\\(MCP): queries and cited answers};
