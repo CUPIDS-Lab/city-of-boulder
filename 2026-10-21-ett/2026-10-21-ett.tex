@@ -100,9 +100,9 @@
         \item \textbf{Hotline answers.} Aiding staff in research to answer questions from council and other departments
         \item \textbf{Budget history.} Converting PDF tables into accessible data formats
         \item \textbf{The law on a date.} Which version of an ordinance was in force when a permit was issued
-        \item \textbf{Records requests.} A document made searchable once is ready for every later request that asks for it
+        \item \textbf{Records requests.} A document made searchable once is ready for every later request
         \item \textbf{Accessibility.} Every scanned page gains text that a screen reader can speak
-        \item \textbf{Research and reporting.} Residents, reporters, and the university work from the same corpus as staff
+        \item \textbf{Research and reporting.} Residents, reporters, and the researchers work from the same corpus as staff
     \end{itemize}
 \end{frame}
 
@@ -115,8 +115,8 @@
 
     \bigskip
 
-    \begin{columns}
-        \begin{column}{0.47\textwidth}\small 
+    \begin{columns}\small 
+        \begin{column}{0.47\textwidth} 
             \textbf{City budget books, 2002--2027}\par\vspace{-5pt}\rule{\linewidth}{0.1em}
 
             \href{https://documents.bouldercolorado.gov/WebLink/Browse.aspx?id=187445&dbid=0&repo=LF8PROD2&cr=1}{City budgets}
@@ -133,12 +133,14 @@
 
             450 values traced to source documents and reconciled
         \end{column}
-        \begin{column}{0.47\textwidth}\small 
+        \begin{column}{0.47\textwidth} 
             \textbf{CDE enrollment yearbooks, 1986--2025}\par\vspace{-5pt}\rule{\linewidth}{0.1em}
             
             \smallskip
 
             \href{https://spl.cde.state.co.us/artemis/edserials/ed27919internet/}{Pupil membership}
+
+            \smallskip
             
             Scanned tables of enrollment by grade and school district
 
@@ -196,7 +198,7 @@
     \bigskip
 
     \begin{alertblock}{Question}
-        How many of council's questions could be answered with staff-supervised automation using the city's own records?
+        How many of council's questions could be answered using the city's own records?
     \end{alertblock}
 
     \bottomcite{City of Boulder open data, ``\href{https://bouldercolorado.gov/boulder-council-hotline-archives}{Emails to the City Council Hotline},'' March 2, 2023 to October 15, 2026}
@@ -235,6 +237,10 @@
         \begin{column}{0.4\textwidth}\includegraphics[width=0.95\textwidth]{img/deck-records-needed.pdf}
         \end{column}
     \end{columns}
+
+    \begin{alertblock}{It goes without saying}
+        Building an agent interface into a document understanding pipeline should never attempt to replace staff expertise, experience, and oversight
+    \end{alertblock}
 \end{frame}
 
 \begin{frame}{What to liberate first}
@@ -297,7 +303,7 @@
         
             \medskip
         
-            Fulfilling CORA requests can be expensive and complex $\rightarrow$ investments in data liberation and rescue could be a longer-term cost saving center
+            Fulfilling CORA requests can be expensive and complex $\rightarrow$ data liberation and rescue could save costs
         \end{column}
         \begin{column}{.3\textwidth}
             \includegraphics[width=.95\textwidth]{img/responsive.jpg}
@@ -307,7 +313,7 @@
 
 \end{frame}
 
-\begin{frame}{Community values}
+\begin{frame}{Community values}\small
     The city's Sustainability, Equity and Resilience Framework commits the city to a government that:
 
     \begin{itemize}
@@ -316,10 +322,6 @@
         \item ``Enhances and facilitates \textbf{transparency}, accuracy, efficiency, effectiveness... in all city business''
         \item ``Disaggregates data by race and ethnicity to ensure programs, policies, and financial decisions do not have a disparate impact on historically excluded community members''
     \end{itemize}
-
-    \medskip
-
-    Information like records are a city assets, alongside money, people, and buildings
 
     \medskip
 
@@ -333,21 +335,34 @@
 % -------------------------------------------------------------------------
 
 \begin{frame}{What happens next}
-    \begin{columns}
+    \begin{columns}\small 
         \begin{column}{0.56\textwidth}
-            Reading a scanned page costs under a cent today, and the price keeps falling
+            Profound improvements in performance per dollar using document understanding to support digitization, accessibility, transparency, and efficiency
 
             \medskip
 
-            Finding the right document, checking what the machine read, and deciding what may be released will still take people. Retention schedules and legal review don't get cheaper with faster chips
+            Identify commonly-requested materials from council and public 
+
+            \medskip
+            
+            Convert and document into more accessible formats via existing Open Data team and infrastructure
 
             \medskip
 
-            Vendors will arrive with products running on the city's own documents. For the hotline, the product worth buying writes a draft answer with citations, which a staff member checks and signs
+            Decisions about what to digitize, how to prioritize, where to archive, and who to open tooling to are unavoidably political
+
+            \medskip
+
+            Protect staff time for substantive analysis and expert interpretation rather than menial information retrieval and cleaning
+
+            \medskip
+
+            Implement SER Framework values through open standards and products, not expensive and fragile vendor solutions
+            
         \end{column}
         \begin{column}{0.4\textwidth}
             \centering
-            \includegraphics[width=0.9\textwidth]{img/drake-hotline.png}
+            \includegraphics[width=0.9\textwidth]{img/georgi.jpg}
         \end{column}
     \end{columns}
 
@@ -355,103 +370,78 @@
 \end{frame}
 
 \begin{frame}{Why I might be wrong}
-    \begin{columns}
+    \begin{columns}\small 
         \begin{column}{0.56\textwidth}
-            Demand may be low. My evidence is one coder and 40 hotline answers
+            Major pivot in data culture requiring procurement, training, and maintenance
+
+            \medskip
+            
+            Demand for agentic interfaces into municipal archives may be low --- or introduce novel political, legal, and operational risks
 
             \medskip
 
-            Models may outgrow search. If a model can read every record at once, the city needs less search machinery, though it still needs every answer to cite a page
-
-            \medskip
-
-            An automated assistant that chains several lookups can go wrong at each step without flagging it. Nobody has measured how often on city records
-
-            \medskip
-
-            Most likely of all, the project just stops: multi-year records work dies on one budget cycle or one staff departure
+            Early mover risks with dramatic changes in architectures, standards, and practices for AI, agents, MCPs, data lakes, \textit{etc}.
         \end{column}
         \begin{column}{0.4\textwidth}
             \centering
-            \includegraphics[width=0.9\textwidth]{img/this-is-fine.jpg}
+            \includegraphics[width=0.9\textwidth]{img/chart.jpg}
         \end{column}
     \end{columns}
 
     \note{Taskforce prompt: why might we be wrong. Say the demand point flatly: it is the strongest objection to my own recommendation, and the room should hear me make it first. The last point is the most likely failure, and it isn't technical.}
 \end{frame}
 
-\begin{frame}{Some records shouldn't become data}
+\begin{frame}{Other risks}
     \begin{columns}
         \begin{column}{0.56\textwidth}
-            Sort every holding into one of three kinds: \textbf{already data}, \textbf{could become data}, or \textbf{shouldn't become data}
+            Documents in archives fall into at least three categories: \textbf{already data}, \textbf{could become data}, or \textbf{shouldn't become data}
 
             \medskip
 
-            The third kind includes surveillance video, utility and recreation customer records, code complaints that name residents, protective-order addresses, and records about victims and juveniles
+            Surveillance video, customer records, code complaints, records about victims and juveniles are some kinds of archived documents that should \textit{not} become data
 
             \medskip
 
-            The danger is aggregation. Each record can stay obtainable on its own under CORA, while a searchable index would let anyone assemble a dossier in minutes
+            What gets scanned gets cited $\rightarrow$ paper archives omitted from trends and comparisons
 
             \medskip
 
-            The city has done this before: the published hotline replaces every email address and phone number with a one-way code
+            OCR does worst on old, handwritten, tabular, and non-English pages
+
+            \medskip
+
+            Use SER framework to guide digitization priorities
+            
         \end{column}
         \begin{column}{0.4\textwidth}
             \centering
-            \includegraphics[width=0.75\textwidth]{img/ben-parker.jpg}
-
-            {\scriptsize ``With great power comes great responsibility''}
+            \includegraphics[width=.75\textwidth]{img/ignoring.jpg}
         \end{column}
     \end{columns}
-
-    \note{Taskforce prompts: key risks; mitigation. Guard against being heard as against transparency. Records law doesn't change; what changes is whether the city builds the index. Practical obscurity, the protection of being hard to find, disappears unless someone decides to keep it.}
-\end{frame}
-
-\begin{frame}{Who bears the cost}
-    \begin{columns}
-        \begin{column}{0.56\textwidth}
-            What gets scanned gets cited. Records left on paper drop out of every search and analysis, and the least-digitized records tend to describe the least powerful residents
-
-            \medskip
-
-            OCR does worst on old, handwritten, tabular, and non-English pages, so search quality drops along the same lines
-
-            \medskip
-
-            A searchable index exposes residents with the most contact with code enforcement and police far more than anyone else
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \centering
-            \includegraphics[width=\textwidth]{img/archives-are-incomplete.jpg}
-        \end{column}
-    \end{columns}
-
-    \bigskip
-
-    \begin{alertblock}{Set the order on purpose}
-        Let equity decide which holdings are digitized first. The city's own framework already asks it to check data for disparate impact
-    \end{alertblock}
-
-    \note{Taskforce prompt: would impacts be disproportionately felt in our community. Don't soften this into a caveat. It is a sequencing rule: it should change which holdings the city digitizes first.}
 \end{frame}
 
 \begin{frame}{Key takeaways}
     \begin{enumerate}\setlength\itemsep{4pt}
-        \item The city holds \textbf{long data}, and most of it a computer can't yet read
-        \item Reading pages is cheap now; \textbf{finding and checking} them is the work
-        \item The \textbf{hotline} shows the demand: a third of substantive answers were lookups in records the city already holds
+        \item The city holds \textbf{long data} of immense value locked away in PDFs and paper
+        \item Digitizing is getting better and cheaper while costs of \textbf{finding and checking} them remains constant-ish
+        \item The \textbf{hotline} archive shows a third of substantive answers were lookups that could have required less staff time
         \item \textbf{Accessibility law, CORA, and the city's own framework} already call for this work
-        \item Before buying anything: \textbf{an inventory}, stable document IDs and bulk export written into contracts, and a rule that every machine answer cites a page
     \end{enumerate}
 
-    \bigskip
+\end{frame}
 
-    \begin{alertblock}{A test for the first demonstration}
-        Which of the three kinds of holding is its corpus? Does every answer cite a document and page?
-    \end{alertblock}
+\begin{frame}{Thank you}
+    Source and support code for this deck are available here: \url{https://github.com/CUPIDS-Lab/city-of-boulder/tree/main/2026-10-21-ett}
 
-    \note{Taskforce prompt: what would the city need to do. Ten minutes in a browser and two sprints are not an audit. The finding I hold with the most confidence is the one nobody can close yet: the size of the backlog. What the city still holds after a vendor leaves is a choice it can make now, while it is cheap.}
+    \medskip
+
+    Claude Opus 5.5 was used for the hotline data analysis
+
+    \medskip
+
+    Questions? \href{mailto:brian.keegan@colorado.edu}{brian.keegan@colorado.edu} or \href{mailto:me@brianckeegan.com}{me@brianckeegan.com}
+
+    
 \end{frame}
 
 % =========================================================================
@@ -489,52 +479,6 @@
 
     \raggedright\small
     Financial records come up in more than 60\% of questions and answers in every theme. Most answers need several kinds of record at once
-\end{frame}
-
-\begin{frame}[fragile,noframenumbering]{Appendix: getting a report from the records portal}
-\begin{lstlisting}
-import requests, time
-# PORTAL, LISTING, and DOWNLOAD hold the portal's addresses; chapter 9 gives them in full
-HEADERS = {"User-Agent": "WebDataScience/1.0 (your-email@colorado.edu)"}
-# The folder's listing: the request the folder page itself sends (194345 is Revenue Reports)
-body = {"folderId": 194345, "getNewListing": True, "start": 0, "end": 100}
-response = requests.post(PORTAL + LISTING, json=body, headers=HEADERS, timeout=60, verify=bundle)
-for entry in response.json()["data"]["results"]:
-    print(entry["entryId"], entry["name"])
-
-time.sleep(30)  # wait between requests to the city's server
-response = requests.get(PORTAL + DOWNLOAD.format(docid=194397), headers=HEADERS, timeout=120, verify=bundle)
-print(response.headers["Content-Type"], len(response.content), response.content[:5])
-# application/pdf 723920 b'%PDF-'
-\end{lstlisting}
-
-    \small \texttt{bundle} is a certificate file the book provides, because the city's server is set up in a way browsers forgive and Python doesn't. Chapter 9 also sends the request fields the page adds
-
-    \bottomcite{Condensed from Keegan, \textit{Web Data Science}, Chapter 9, ``Getting the Files'' (github.com/cuinfoscience/Web-Data-Science-Book)}
-\end{frame}
-
-\begin{frame}[fragile,noframenumbering]{Appendix: reading and checking the totals row}
-\begin{lstlisting}
-import pdfplumber
-
-def row_words(page, label):
-    """Return the words to the right of label, on the line where label is."""
-    found = page.search(label)[0]  # where the label sits on the page, in points
-    line = page.crop((0, found["top"] - 1, page.width, found["bottom"] + 1))
-    return [w["text"] for w in line.extract_words() if w["x0"] > found["x1"]]
-
-for name in REPORTS:
-    with pdfplumber.open(name) as pdf:
-        page = find_summary_page(pdf)  # the page whose text includes "This report provides"
-        earlier, this, change = [to_number(t) for t in row_words(page, "Total Sales and Use Tax")[:3]]
-    if this - earlier != change:  # the report's own change column is the check
-        print(f"{name}: {this:,} - {earlier:,} is not {change:,}")
-# (nothing printed: every change column checks)
-\end{lstlisting}
-
-    \small \texttt{to\_number} turns ``\$134,538,892'' or ``(1,145,528)'' into a whole number; accountants write a negative number in parentheses
-
-    \bottomcite{Condensed from Keegan, \textit{Web Data Science}, Chapter 9, ``Reading the Totals Row by Position'' (github.com/cuinfoscience/Web-Data-Science-Book)}
 \end{frame}
 
 \end{document}
