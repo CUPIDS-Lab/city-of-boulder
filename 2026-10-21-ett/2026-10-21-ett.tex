@@ -151,7 +151,7 @@
 
             \smallskip
 
-            1,269 values extracted and audited for the Boulder Valley and St.~Vrain Valley school districts
+            1,269 values extracted and audited for BVSD and SVVSD
         \end{column}
     \end{columns}
 
@@ -167,7 +167,7 @@
     \bottomcite{Indexed to 2005 = 100. Adopted budgets. General Fund: total uses. Capital: capital budget, all funds. Staff: FTE. Dollars in constant 2005 dollars (Denver--Aurora--Lakewood CPI-U). City of Boulder budget books and annual financial reports, via the budget-history dataset}
 \end{frame}
 
-\begin{frame}[fragile]{Teaching with the city's records portal}
+\begin{frame}[fragile]{Teaching with the city's records portal}\small
     Week 9 of my Web Data Science course uses the Finance Department's year-end revenue reports: \url{https://cuinfoscience.github.io/Web-Data-Science-Book/ch-09-pdfs.html}
 
     \bigskip
@@ -185,7 +185,7 @@
 % The hotline case study
 % -------------------------------------------------------------------------
 
-\begin{frame}{Council hotline}
+\begin{frame}{Council hotline}\small
     Council members and staff exchange questions and answers via the council hotline
 
     \medskip
@@ -281,7 +281,192 @@
 
 \end{frame}
 
-\begin{frame}{A proposed pipeline}
+
+% -------------------------------------------------------------------------
+% Obligations and values
+% -------------------------------------------------------------------------
+
+\begin{frame}{Accessibility and CORA/FOIA}
+    \begin{columns}\small
+        \begin{column}{.65\textwidth}
+            The ADA requires the city's web content, including PDFs, to meet accessibility guidelines (WCAG 2.1) by April 2027
+
+            \medskip
+            
+            Scanned documents without text layers and figures without alt text are endemic throughout municipal archives
+        
+            \medskip
+        
+            Documents needed to get a service must be readable; archived scans are exempt
+        
+            \medskip
+        
+            Fulfilling CORA requests can be expensive and complex $\rightarrow$ data liberation and rescue could save costs
+
+            \medskip
+
+            Back of the envelope: OCR for 10k budget pages at 0.75\textcent{} a page is about \$75, roughly two hours of research billed at CORA's \$41.37 hourly cap
+        \end{column}
+        \begin{column}{.3\textwidth}
+            \includegraphics[width=.95\textwidth]{img/responsive.jpg}
+        \end{column}
+    \end{columns}
+    \bottomcite{28 C.F.R. \S\S 35.200--35.201, as amended by 91 Fed.\ Reg.\ 20902 (April 20, 2026); C.R.S. \S 24-34-802 (HB21-1110, HB24-1454); CORA, C.R.S. \S 24-72-201 et seq.}
+\end{frame}
+
+\begin{frame}{Community values}\small
+    \begin{columns}
+        \begin{column}{.65\textwidth}
+            The city's Sustainability, Equity and Resilience (SER) Framework commits the city to a government that:
+
+        \begin{itemize}
+            \item ``Models stewardship, resilience, and sustainability of the city's financial, human, \textbf{information}, and physical assets''
+            \item ``Supports strategic decision-making with \ldots{} timely and \textbf{reliable data and analysis}''
+            \item ``Enhances and facilitates \textbf{transparency}, accuracy, efficiency, effectiveness''
+            \item ``Disaggregates data\ldots{} to ensure programs, policies, and financial decisions do not have a disparate impact''
+        \end{itemize}
+    
+        \medskip
+    
+        Uneven digitization and accessibility limit the ability of elected officials, staff, researchers, and journalists to study disparate impacts
+        \end{column}
+        \begin{column}{.3\textwidth}
+            \includegraphics[width=\textwidth]{img/iceberg.jpg}
+        \end{column}
+    \end{columns}
+    
+
+    \bottomcite{City of Boulder, ``\href{https://www.bouldercolorado.gov/sustainability-equity-and-resilience-framework}{Sustainability, Equity and Resilience Framework}''}
+\end{frame}
+
+% -------------------------------------------------------------------------
+% Outlook and risks
+% -------------------------------------------------------------------------
+
+\begin{frame}{What happens next}
+    \begin{columns}\small 
+        \begin{column}{0.65\textwidth}
+            Profound improvements in performance per dollar using document understanding to support digitization, accessibility, transparency
+
+            \medskip
+
+            Identify materials commonly requested by council and the public
+
+            \medskip
+            
+            Convert and document them in accessible formats through the existing Open Data team and infrastructure
+
+            \medskip
+
+            Decisions about what to digitize, how to prioritize, where to archive, and who to open tooling to are unavoidably political
+
+            \medskip
+
+            Protect staff time for substantive analysis and expert interpretation rather than menial information retrieval and cleaning
+
+            \medskip
+
+            Implement SER Framework values through open standards and products, not expensive and fragile vendor solutions
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/georgi.jpg}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}{Why I might be wrong}
+    \begin{columns}\small 
+        \begin{column}{0.56\textwidth}
+            Major pivot in data culture requiring procurement, training, and maintenance
+
+            \medskip
+            
+            Demand for agentic interfaces into municipal archives may be low --- or introduce novel political, legal, and operational risks
+
+            \medskip
+
+            Early mover risks with dramatic changes in architectures, standards, and practices for AI, agents, MCP servers, and data lakes
+
+            \medskip
+
+            Staff may already find most answers with the search tools they have, and know where to look
+
+            \medskip
+
+            Many answers may not be in archives --- new data, analyses, or judgments needed in many hotline responses
+
+            \medskip
+
+            Models can hallucinate plausible but wrong numbers, which could cost more trust than the time it saved
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \centering
+            \includegraphics[width=0.9\textwidth]{img/chart.jpg}
+        \end{column}
+    \end{columns}
+
+\end{frame}
+
+\begin{frame}{Other risks}\small 
+    \begin{columns}
+        \begin{column}{0.65\textwidth}
+            Documents in archives fall into at least three categories: \textbf{already data}, \textbf{could become data}, or \textbf{shouldn't become data}
+
+            \medskip
+
+            Surveillance video, customer records, code complaints, and records about victims and juveniles should \textit{not} become data
+
+            \medskip
+
+            What gets scanned gets cited $\rightarrow$ paper archives omitted from trends and comparisons
+
+            \medskip
+
+            OCR does worst on old, handwritten, tabular, and non-English pages
+
+            \medskip
+
+            Use the SER Framework to guide digitization priorities
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \centering
+            \includegraphics[width=.75\textwidth]{img/ignoring.jpg}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Key takeaways}
+    \begin{enumerate}\setlength\itemsep{4pt}
+        \item The city holds long data of immense value locked away in PDFs and paper
+        \item Digitizing is getting better and cheaper, while the cost of verifying records stays roughly constant
+        \item The hotline analysis shows more than half of staff answers draw on three or more kinds of records
+        \item Accessibility law, CORA, and the city's own framework already call for this work
+    \end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Thank you}
+    Source code and data for this deck: \url{https://github.com/CUPIDS-Lab/city-of-boulder/tree/main/2026-10-21-ett}
+
+    \medskip
+
+    Claude Opus 5.5 was used for the hotline data analysis
+
+    \medskip
+
+    Questions? \href{mailto:brian.keegan@colorado.edu}{brian.keegan@colorado.edu} or \href{mailto:me@brianckeegan.com}{me@brianckeegan.com}
+
+    
+\end{frame}
+
+% =========================================================================
+% Appendix: unnumbered, so the footer counts only the talk's own frames.
+% (Gotham's \appendix adds a part page and a contents page, so it isn't used.)
+% =========================================================================
+
+\begin{frame}{Appendix: A modest proposal}
     \centering
     \providecommand{\nohyphens}{\hyphenpenalty=10000 \exhyphenpenalty=10000 }
     % Columns, left edge to right edge in cm, with 0.6 cm between them so every arrow keeps a visible line:
@@ -362,193 +547,6 @@
         \node[p-check, draw=none, fill=none, text=buffalobronze, text width=1.55cm, anchor=north] at (7.0, 2.25) {\textbf{Spot check fails} $\rightarrow$ fix and rerun};
     \end{tikzpicture}
 \end{frame}
-
-
-% -------------------------------------------------------------------------
-% Obligations and values
-% -------------------------------------------------------------------------
-
-\begin{frame}{Accessibility and CORA/FOIA}
-    \begin{columns}
-        \begin{column}{.65\textwidth}
-            The ADA requires the city's web content, including PDFs, to meet accessibility guidelines (WCAG 2.1) by April 2027
-
-            \medskip
-            
-            Scanned documents without text layers and figures without alt text are endemic throughout municipal archives
-        
-            \medskip
-        
-            Documents needed to get a service must be readable; archived scans are exempt
-        
-            \medskip
-        
-            Fulfilling CORA requests can be expensive and complex $\rightarrow$ data liberation and rescue could save costs
-
-            \medskip
-
-            Back of the envelope: OCR for all 10,843 budget-book pages at 0.75\textcent{} a page is about \$81, roughly two hours of research billed at CORA's \$41.37 hourly cap
-        \end{column}
-        \begin{column}{.3\textwidth}
-            \includegraphics[width=.95\textwidth]{img/responsive.jpg}
-        \end{column}
-    \end{columns}
-    \bottomcite{28 C.F.R. \S\S 35.200--35.201, as amended by 91 Fed.\ Reg.\ 20902 (April 20, 2026); C.R.S. \S 24-34-802 (HB21-1110, HB24-1454); CORA, C.R.S. \S 24-72-201 et seq.}
-\end{frame}
-
-\begin{frame}{Community values}\small
-    \begin{columns}
-        \begin{column}{.65\textwidth}
-            The city's Sustainability, Equity and Resilience (SER) Framework commits the city to a government that:
-
-        \begin{itemize}
-            \item ``Models stewardship, resilience, and sustainability of the city's financial, human, \textbf{information}, and physical assets''
-            \item ``Supports strategic decision-making with \ldots{} timely and \textbf{reliable data and analysis}''
-            \item ``Enhances and facilitates \textbf{transparency}, accuracy, efficiency, effectiveness''
-            \item ``Disaggregates data\ldots{} to ensure programs, policies, and financial decisions do not have a disparate impact''
-        \end{itemize}
-    
-        \medskip
-    
-        Uneven digitization and accessibility limit the ability of elected officials, staff, researchers, and journalists to study disparate impacts
-        \end{column}
-        \begin{column}{.3\textwidth}
-            \includegraphics[width=\textwidth]{img/iceberg.jpg}
-        \end{column}
-    \end{columns}
-    
-
-    \bottomcite{City of Boulder, ``\href{https://www.bouldercolorado.gov/sustainability-equity-and-resilience-framework}{Sustainability, Equity and Resilience Framework}''}
-\end{frame}
-
-% -------------------------------------------------------------------------
-% Outlook and risks
-% -------------------------------------------------------------------------
-
-\begin{frame}{What happens next}
-    \begin{columns}\small 
-        \begin{column}{0.56\textwidth}
-            Profound improvements in performance per dollar using document understanding to support digitization, accessibility, transparency, and efficiency
-
-            \medskip
-
-            Identify materials commonly requested by council and the public
-
-            \medskip
-            
-            Convert and document them in accessible formats through the existing Open Data team and infrastructure
-
-            \medskip
-
-            Decisions about what to digitize, how to prioritize, where to archive, and who to open tooling to are unavoidably political
-
-            \medskip
-
-            Protect staff time for substantive analysis and expert interpretation rather than menial information retrieval and cleaning
-
-            \medskip
-
-            Implement SER Framework values through open standards and products, not expensive and fragile vendor solutions
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \centering
-            \includegraphics[width=0.9\textwidth]{img/georgi.jpg}
-        \end{column}
-    \end{columns}
-
-\end{frame}
-
-\begin{frame}{Why I might be wrong}
-    \begin{columns}\small 
-        \begin{column}{0.56\textwidth}
-            Major pivot in data culture requiring procurement, training, and maintenance
-
-            \medskip
-            
-            Demand for agentic interfaces into municipal archives may be low --- or introduce novel political, legal, and operational risks
-
-            \medskip
-
-            Early mover risks with dramatic changes in architectures, standards, and practices for AI, agents, MCP servers, and data lakes
-
-            \medskip
-
-            Staff may already find most answers with the search tools they have, and know where to look
-
-            \medskip
-
-            The records may not hold the answer: in 40 staff answers I coded by hand, half needed judgment or new analysis
-
-            \medskip
-
-            Models write plausible wrong numbers, and one wrong figure in an answer to council costs more trust than the time it saved
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \centering
-            \includegraphics[width=0.9\textwidth]{img/chart.jpg}
-        \end{column}
-    \end{columns}
-
-\end{frame}
-
-\begin{frame}{Other risks}\small 
-    \begin{columns}
-        \begin{column}{0.56\textwidth}
-            Documents in archives fall into at least three categories: \textbf{already data}, \textbf{could become data}, or \textbf{shouldn't become data}
-
-            \medskip
-
-            Surveillance video, customer records, code complaints, and records about victims and juveniles should \textit{not} become data
-
-            \medskip
-
-            What gets scanned gets cited $\rightarrow$ paper archives omitted from trends and comparisons
-
-            \medskip
-
-            OCR does worst on old, handwritten, tabular, and non-English pages
-
-            \medskip
-
-            Use the SER Framework to guide digitization priorities
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \centering
-            \includegraphics[width=.75\textwidth]{img/ignoring.jpg}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Key takeaways}
-    \begin{enumerate}\setlength\itemsep{4pt}
-        \item The city holds long data of immense value locked away in PDFs and paper
-        \item Digitizing is getting better and cheaper, while the cost of verifying records stays roughly constant
-        \item The hotline analysis shows more than half of staff answers draw on three or more kinds of records
-        \item Accessibility law, CORA, and the city's own framework already call for this work
-    \end{enumerate}
-
-\end{frame}
-
-\begin{frame}{Thank you}
-    Source code and data for this deck: \url{https://github.com/CUPIDS-Lab/city-of-boulder/tree/main/2026-10-21-ett}
-
-    \medskip
-
-    Claude Opus 5.5 was used for the hotline data analysis
-
-    \medskip
-
-    Questions? \href{mailto:brian.keegan@colorado.edu}{brian.keegan@colorado.edu} or \href{mailto:me@brianckeegan.com}{me@brianckeegan.com}
-
-    
-\end{frame}
-
-% =========================================================================
-% Appendix: unnumbered, so the footer counts only the talk's own frames.
-% (Gotham's \appendix adds a part page and a contents page, so it isn't used.)
-% =========================================================================
-
-\renewcommand{\footlabel}{Appendix}
 
 \begin{frame}[noframenumbering]{Appendix: record priorities in detail}
     \scriptsize\renewcommand{\arraystretch}{1.05}
